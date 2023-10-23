@@ -3,6 +3,7 @@ import styled from "styled-components";
 import axios from "axios";
 import "./SearchInfo.css";
 import BookSaleList from "../booksalelist/SaleList";
+import { useParams } from "react-router-dom";
 
 const BookContent = styled.div`
   height: 50%;
@@ -22,11 +23,14 @@ const Introduce = styled.div`
 `;
 
 function SearchInfo() {
+  const { title } = useParams();
   const [searchinfo, setSearchinfo] = useState(null);
+
+  console.log("검색어 :", title);
 
   useEffect(() => {
     axios
-      .get("http://localhost:4001/getSearchInfo")
+      .get(`http://localhost:4001/getTitleSearch?title=${title}`)
       .then((res) => {
         setSearchinfo(res.data);
         console.log(res.data);

@@ -41,7 +41,7 @@ function Search() {
           className="searchbar"
           style={{ fontSize: "20px" }}
         />
-        <Link to="/searchinfo">
+        <Link to="/searchinfo/React">
           <input type="submit" value="도서 조회" className="searchbtn" />
         </Link>
       </SearchBar>

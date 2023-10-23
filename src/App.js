@@ -36,7 +36,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<RegisterForm />} />
           <Route path="/mypage" element={<MyPage />} />
-          <Route path="/searchinfo" element={<SearchInfo />} />
+          <Route path="/searchinfo/:title" element={<SearchInfo />} />
           <Route path="/bookenroll" element={<Bookenroll />} />
           <Route path="/anw" element={<Anw />} />
           <Route path="/qna" element={<Qna />} />
