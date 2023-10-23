@@ -1,0 +1,74 @@
+import styled from 'styled-components';
+
+const CardContainer = styled.div`
+  width: 30%;
+  margin-top: 1rem;
+`;
+
+const CardImageContainer = styled.div`
+  min-height: 150px;
+  background-color: #fff;
+  border: 1px solid #000;
+  border-bottom: none;
+`;
+
+const CardImage = styled.img`
+  max-width: 100%;
+  height: auto;
+  background-color: #fff;
+`;
+
+const CardBody = styled.div`
+  background-color: #fff;
+  border: 1px solid #000; 
+  `;
+
+const CardBodyTitle = styled.div`
+  background-color: inherit;
+  padding: 0.2rem 0.8rem;
+`;
+
+const CardBodyAuthor = styled.div`
+  background-color: inherit;
+  padding: 0.2rem 0.8rem;
+`;
+
+const CardFooter = styled.div`
+  display: flex;
+  justify-content: space-around;
+  margin: 1rem 0;
+`;
+const CardFooterButton = styled.button`
+  background-color: #774836;
+  color: #fff;
+  cursor: pointer;
+  padding: 0.6rem 0.8rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.4rem;
+`;
+
+function BookCard({ book }) {
+  
+  return (
+    <CardContainer>
+      <CardImageContainer>
+        <CardImage src={book.imageSrc} alt={book.title} />
+      </CardImageContainer> 
+      <CardBody>
+        <CardBodyTitle>{book.title}</CardBodyTitle>
+        <CardBodyAuthor>{book.author}</CardBodyAuthor>
+      </CardBody>
+      <CardFooter>
+        <CardFooterButton>        
+          상세조회
+        </CardFooterButton>
+        <CardFooterButton>
+          응찰참여
+        </CardFooterButton>
+      </CardFooter>
+    </CardContainer>
+  );
+}
+
+export default BookCard;

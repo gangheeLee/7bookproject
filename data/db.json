@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "김강미",
+      "userId": "rkdal6822",
+      "pw": "Rmsghk2634!!",
+      "email": "rkdal0401@naver.com",
+      "phoneNumber": "010-4670-6822",
+      "birth": "1997.04.01"
+    },
+    {
+      "id": 2,
+      "name": "홍길동",
+      "userId": "abcd1234",
+      "pw": "Abcd1234!!",
+      "email": "abc123@naver.com",
+      "phoneNumber": "010-1234-5678",
+      "birth": "1999.01.01"
+    },
+    {
+      "id": 3,
+      "name": "이순신",
+      "userId": "aaaa1234",
+      "pw": "Aaaa1234!!",
+      "email": "aaa123@naver.com",
+      "phoneNumber": "010-1111-5678",
+      "birth": "2000.01.01"
+    },
+    {
+      "id": 4,
+      "name": "김유신",
+      "userId": "sksl9102",
+      "pw": "Adsl340!!",
+      "email": "skd023@naver.com",
+      "phoneNumber": "010-0000-0000",
+      "birth": "2000.12.19"
+    }
+  ]
+}

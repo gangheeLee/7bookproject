@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+.All {
+    width: 100%;
+    height: auto;
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 100;
+
+}
+
+.p1 {
+    font-size: 45px;
+    margin-left: 5.5em;
+}
+
+.first {
+    position: absolute;
+
+    border: 1px solid #000000;
+    width: 60%;
+    height: 700px;
+    background-color: #ffffff;
+    border-collapse: collapse;
+    top: 29vh;
+    margin-left: 29em;
+
+}
+
+.target {
+    width: 20%;
+    font-size: 40px;
+    display: block;
+    margin-left: 3em;
+
+}
+
+select {
+    background: url('./dropdown.png') no-repeat 95% 30%;
+}
+
+.select {
+    position: absolute;
+    margin-left: 25em;
+    background-color: #ffffff;
+    border: 3px solid #b2adad;
+    top: 43px;
+    width: 500px;
+
+    padding: .8em .5em;
+
+    border: 1px solid #f0eaea;
+
+    font-family: inherit;
+
+    border-radius: 0px;
+
+    -webkit-appearance: none;
+
+    -moz-appearance: none;
+
+    appearance: none;
+
+
+}
+
+.input {
+    position: absolute;
+    width: 60%;
+    height: 50px;
+    top: 12em;
+    margin-left: 13em;
+    border: 1px solid #c2bebe;
+}
+
+input::placeholder {
+    font-size: 20px;
+    margin-left: 2em;
+}
+
+.cname {
+    position: absolute;
+    width: 60%;
+    height: 400px;
+    top: 18.5vh;
+    left: 13em;
+    border: 1px solid #c2bebe;
+
+}
+
+textarea::placeholder{
+    font-size: 20px;
+}
+
+.btn {
+    position: relative;
+    padding:20px 40px;
+    background-color:#774836;
+    color: #ffffff;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 20px;
+    float: right;
+    margin-right: 27em;
+    top: 53vh;
+}

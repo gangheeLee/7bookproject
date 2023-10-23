@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+* {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 100;
+    /* position: fixed; */
+}
+
+.bookEnroll{
+    
+    width: 100%;
+    height: 100%;
+    
+}
+
+.enr {
+    margin-left: 10.4em;
+    font-size: 30px;
+    
+}
+h1 {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 100;
+}
+
+.Bimg {
+    border: 1px solid;
+    display: flex;
+    justify-content: space-between;
+    width: 350px;
+    height: 500px;
+    margin-top: 6em;
+    margin-left: 19.9em;
+}
+
+.image {
+    width: 350px;
+    height: 500px;
+}
+
+.file_button{
+    padding:20px;
+    background-color:#ffffff;
+    color: #000000;
+    cursor: pointer;
+  }
+
+.file {
+    width: 30%;
+    margin-top: 4em;
+    margin-left: 20em;
+}
+
+.Btn {
+    
+    padding: 20px;
+    background-color:#ffffff;
+    color: #000000;
+    cursor: pointer;
+    margin-left: 7.3em;
+}
+
+.Btn:active {
+    background-image: url('./bagic.png');
+    
+}
+
+
+.bookn {
+    position: absolute;
+    top: 30px;
+    left: 21em;
+    margin-top: 11em;
+    font-size: 40px;
+    
+}
+
+.Info {
+    position: absolute;
+    
+    width: 50%;
+    height: 600px;
+    float: right;
+    right: 14.1em;
+    padding: 25px 0px;
+    margin-bottom: 11em;
+    font-size: 25px;
+    top: 23em;
+    
+}
+
+.Info input {
+    width: 500px;
+    height: 50px;
+}
+
+.state {
+
+    position: absolute;
+    width: 400px;
+    height: 600px;
+    float: right;
+    margin-left: 90em;
+    top: 29em;
+}
+
+.state input {
+    width: 200px;
+    height: 50px;
+}
+
+.Sfont {
+    font-size: 35px;
+}
+
+input[type="checkbox"]{
+    /* margin:-4px 3 0 5px;  */
+    vertical-align:middle;
+    display: none;
+  }
+input[type="checkbox"] + label{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border:3px solid #707070;
+    position: relative;
+  }
+input[id="check1"]:checked + label::after{
+    content:'✔';
+    font-size: 25px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    top:0;
+  }
+
+  input[id="check2"]:checked + label::after{
+    content:'✔';
+    font-size: 25px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    top:0;
+  }
+
+  input[id="check3"]:checked + label::after{
+    content:'✔';
+    font-size: 25px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    top:0;
+  }
+
+  input[id="check4"]:checked + label::after{
+    content:'✔';
+    font-size: 25px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    top:0;
+  }
+
+  .chbox {
+    padding-top: 3em;
+    
+  }
+  .cb1 {
+    margin-bottom: 2.2em;
+  }
+
+  .cb2 {
+    margin-bottom: 2.2em;
+  }
+
+  .cb3 {
+    margin-bottom: 2.2em;
+  }
+
+  .cb4 {
+    margin-bottom: 2.2em;
+  }
+  
+  .box1 {
+    margin-left: 3em;
+    position: relative;
+    top: -20px;
+  }
+
+
+  .buyp {
+    margin-top: 2em;;
+    width: 300px;
+    height: 300px;
+    position: relative;
+    float: right;
+    margin-right: 8em;
+    font-size: 35px;
+    top: -48vh;
+  }
+
+  .buybox {
+    margin-top: -25.89em;
+    float: right;
+    position: absolute;
+    margin-left: 135em;
+    width: 200px;
+    height: 50px;
+  }
+
+  .sendbtn {
+    position: absolute;
+    margin-top: 5em;
+    margin-left: 80em;
+    background-color:#774836;
+    text-align: center;
+    font-size: 23px;
+    width: 150px;
+    height: 50px;
+    border-radius: 6%;
+    color: #ffffff;
+    cursor: pointer;
+    
+  }
+
+

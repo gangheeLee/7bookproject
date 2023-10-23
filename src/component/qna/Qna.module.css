@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+.apage {
+   width: 100%;
+   height: auto;
+   font-family: 'Noto Sans KR';
+font-style: normal;
+font-weight: 100;
+    
+}
+
+.p1 {
+    font-size: 50px;
+    margin-left: 5.5em;
+}
+
+.wbtn {
+    position: relative;
+    padding:20px 40px;
+    background-color:#774836;
+    color: #ffffff;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 20px;
+    float: right;
+    top: -50px;
+    margin-right: 20em;
+    
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.divtable {
+    position: absolute;
+    border: 1px solid #b5b0b0;
+    width: 70%;
+    height: 561px;
+    background-color: #ffffff;
+    border-collapse: collapse;
+    top: 35vh;
+    margin-left: 20em;
+    
+}
+
+.num {
+    width: 230px;
+    height: 40px;
+}
+
+.name {
+    width: 600px;
+    height: 40px;
+}
+
+.title {
+    width: 900px;
+    height: 40px;
+}
+
+.question {
+    width: 250px;
+    height: 40px;
+}
+
+th {
+    border: 1px solid #b5b0b0;
+}
+
+td {
+    height: 100px;
+    border: 1px solid #ded9d9;
+
+}
+
+
+
+.thead {
+    width: 70%;
+    background-color: #d6d4d0;
+    text-align: center;
+    font-size: 20px;
+    
+}
+
+.tbody {
+    text-align: center;
+    font-size: 20px;
+}
+
+.btn1 {
+    padding:10px 16px;
+    margin: 2.5px;
+    background-color:#774836;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+
