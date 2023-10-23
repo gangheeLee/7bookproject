@@ -44,17 +44,6 @@ function App() {
           <Route path="/bookinfo" element={<BookInfo />} />
         </Routes>
       </MainBox>
-      {/* 메인페이지*/}
-      {/* 도서 주문 리스트 */}
-      {/* <MainBox>
-        <Logo />
-        <BookOrderList />
-      </MainBox> */}
-      {/* 도서 판매 리스트 */}
-      {/* <MainBox>
-        <Logo />
-        <BookSaleList />
-      </MainBox> */}
     </div>
   );
 }
