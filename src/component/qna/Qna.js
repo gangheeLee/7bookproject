@@ -49,7 +49,7 @@ function Qna(props) {
                 <td colSpan={"5"}>{post.content}</td>
                 <td>
                   <Link to="/anw">
-                    <label className={styles.btn1}>등록</label>
+                    <label className={styles.btn1}>답변</label>
                     <button style={{ display: "none" }}></button>
                   </Link>
                   <label

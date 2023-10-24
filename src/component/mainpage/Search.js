@@ -36,15 +36,17 @@ function Search() {
     <SearchBox>
       <SearchTitle>어떤 도서를 찾으세요?</SearchTitle>
       <SearchBar>
-        <input
-          type="text"
-          placeholder="도서제목을 입력하세요"
-          className="searchbar"
-          style={{ fontSize: "20px" }}
-        />
-        <Link to="/searchinfo/React">
-          <input type="submit" value="도서 조회" className="searchbtn" />
-        </Link>
+        <form>
+          <input
+            type="text"
+            placeholder="도서제목을 입력하세요"
+            className="searchbar"
+            style={{ fontSize: "20px" }}
+          />
+          <Link to="/searchinfo/React">
+            <input type="submit" value="도서 조회" className="searchbtn" />
+          </Link>
+        </form>
       </SearchBar>
       <BookLink>
         <button className="btnbook"># 책 제목</button>

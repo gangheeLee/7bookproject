@@ -10,7 +10,7 @@
 .bookEnroll{
     
     width: 100%;
-    height: 100%;
+    height: 1200px;
     
 }
 
@@ -33,6 +33,7 @@ h1 {
     height: 500px;
     margin-top: 6em;
     margin-left: 19.9em;
+    /* background-image: "./bagic.png"; */
 }
 
 .image {
@@ -41,31 +42,34 @@ h1 {
 }
 
 .file_button{
-    padding:20px;
+  position: absolute;
+    padding:19px;
     background-color:#ffffff;
     color: #000000;
     cursor: pointer;
+    height: 24px;
+    top: -5.2em;
+    left: 15.3em;
+    
   }
 
 .file {
+  position: absolute;
     width: 30%;
-    margin-top: 4em;
-    margin-left: 20em;
+    margin-top: 7em;
+    margin-left: 5em;
 }
 
 .Btn {
-    
+    position: absolute;
     padding: 20px;
     background-color:#ffffff;
     color: #000000;
     cursor: pointer;
-    margin-left: 7.3em;
+    margin-left: 11em;
 }
 
-.Btn:active {
-    background-image: url('./bagic.png');
-    
-}
+
 
 
 .bookn {
@@ -126,6 +130,8 @@ input[type="checkbox"] + label{
     height: 50px;
     border:3px solid #707070;
     position: relative;
+    top: 25px;
+    left: 0.5px;
   }
 input[id="check1"]:checked + label::after{
     content:'✔';
@@ -166,54 +172,53 @@ input[id="check1"]:checked + label::after{
     width: 50px;
     height: 50px;
     text-align: center;
-    position: absolute;
+    position: relative;
     left: 0;
     top:0;
   }
 
   .chbox {
-    padding-top: 3em;
+    padding-top: 4em;
     
   }
   .cb1 {
-    margin-bottom: 2.2em;
+    margin-bottom: 2.5em;
   }
 
   .cb2 {
-    margin-bottom: 2.2em;
+    margin-bottom: 2.5em;
   }
 
   .cb3 {
-    margin-bottom: 2.2em;
+    margin-bottom: 2.5em;
   }
 
   .cb4 {
-    margin-bottom: 2.2em;
+    margin-bottom: 2.5em;
   }
   
   .box1 {
-    margin-left: 3em;
+    
     position: relative;
-    top: -20px;
+  
   }
 
 
   .buyp {
-    margin-top: 2em;;
     width: 300px;
     height: 300px;
     position: relative;
     float: right;
     margin-right: 8em;
     font-size: 35px;
-    top: -48vh;
+    top: -48.5vh;
   }
 
   .buybox {
-    margin-top: -25.89em;
+    margin-top: -23.5em;
     float: right;
     position: absolute;
-    margin-left: 135em;
+    margin-left: 120em;
     width: 200px;
     height: 50px;
   }
@@ -221,7 +226,7 @@ input[id="check1"]:checked + label::after{
   .sendbtn {
     position: absolute;
     margin-top: 5em;
-    margin-left: 80em;
+    margin-left: 40em;
     background-color:#774836;
     text-align: center;
     font-size: 23px;

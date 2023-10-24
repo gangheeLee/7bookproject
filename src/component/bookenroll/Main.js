@@ -1,24 +1,68 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../bookenroll/Main.module.css";
 
 function Bookenroll(props) {
+  // 이미지 업로드
+  const [selectedImage, setSelectedImage] = useState("/img/bagic.png");
+
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        setSelectedImage(event.target.result);
+        console.log(event.target.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  //이미지 삭제
+  const [showImage, setShowImage] = useState(false);
+  const [imageUrl, setImageUrl] = useState("/img/bagic.png"); // 특정 사진의 URL로 설정해야 합니다.
+
+  const handleShowImage = () => {
+    setShowImage(true);
+  };
+
   return (
     <div className={styles.bookEnroll}>
       <div className={styles.enr}>
         <h1>도서 등록</h1>
       </div>
       <div className={styles.Bimg}>
-        <img className={styles.image} src="/bagic.png" alt="도서 이미지" />
+        {selectedImage && (
+          <img
+            src={selectedImage}
+            className={styles.image}
+            alt="선택한 이미지"
+          />
+        )}
       </div>
       <div className={styles.file}>
-        <label className={styles.file_button}>파일 업로드</label>
-        <input type="file" style={{ display: "none" }} />
-        <label className={styles.Btn}>이미지 삭제</label>
+        <label className={styles.file_button} htmlFor="imageUploadButton">
+          파일 업로드
+        </label>
+        <input
+          type="file"
+          id="imageUploadButton"
+          accept="image/*"
+          style={{ display: "none" }}
+          onChange={handleImageUpload}
+        />
+
+        {/* <input className={styles.file_button} type="file" /> */}
+
+        <label className={styles.Btn} htmlFor="imgd">
+          이미지 삭제
+        </label>
         <input
           type="button"
-          className={styles.Btn}
+          id="imgd"
           style={{ display: "none" }}
+          onClick={handleShowImage}
         />
+        {/* {showImage && <img src={imageUrl} alt="특정 사진" style={{}}/>} */}
       </div>
       <div className={styles.bookdiv}>
         <div className={styles.bookn}>

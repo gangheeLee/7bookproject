@@ -2,7 +2,7 @@
 
 .apage {
    width: 100%;
-   height: auto;
+   height: 850px;
    font-family: 'Noto Sans KR';
 font-style: normal;
 font-weight: 100;
@@ -15,16 +15,17 @@ font-weight: 100;
 }
 
 .wbtn {
-    position: relative;
-    padding:20px 40px;
+    position: absolute;
+    padding:20px 50px;
     background-color:#774836;
     color: #ffffff;
     border-radius: 8px;
     cursor: pointer;
     font-size: 20px;
-    float: right;
-    top: -50px;
-    margin-right: 20em;
+    margin-left: 35.5em;
+    height: 25px;
+    top: 20em;
+    
     
 }
 
@@ -41,6 +42,7 @@ table {
     border-collapse: collapse;
     top: 35vh;
     margin-left: 20em;
+    top: 30em;
     
 }
 
@@ -90,11 +92,14 @@ td {
 }
 
 .btn1 {
+    position: relative;
     padding:10px 16px;
-    margin: 2.5px;
+    margin: 10px;
+    left: -0.12em;
     background-color:#774836;
     color: #ffffff;
     cursor: pointer;
+    top: 1px;
     border-radius: 15px;
 }
 
