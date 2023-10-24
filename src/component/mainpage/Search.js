@@ -2,6 +2,7 @@ import styled from "styled-components";
 import React, { useState } from "react";
 import "./Search.css";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const SearchBox = styled.div`
   height: 50vh;
