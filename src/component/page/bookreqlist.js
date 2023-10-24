@@ -6,18 +6,30 @@ import SearchBar from "../bookreqlist/SearchBar";
 import BookCardContainer from "../bookreqlist/BookCardContainer";
 import BookCard from "../bookreqlist/BookCard";
 import { booklist } from "../data/books";
+import styled from "styled-components";
+
+const OrderByContainer = styled.div`
+  color: #774836;
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+`
+const OrderByButton = styled.div`
+  margin: 0 0.5rem;
+`
 
 function BookRequestListPage() {
+  const [AscOrderByValue, setAscOrderbyValue] = useState("title");
   const [searchText, setSearchText] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
-    const filteredSeachResults = booklist.filter(
-      ({ title, author }) =>
-        title.includes(searchText) || author.includes(searchText)
-    );
+    const filteredSeachResults = booklist.filter(({ title, author }) => {
+      const replacedSearchText = searchText.replace(' ', '')
+      return title.replaceAll(' ', '').includes(replacedSearchText) || author.replaceAll(' ', '').includes(replacedSearchText)
+    });
     setSearchResults(filteredSeachResults);
-  }, [searchText]);
+  }, [searchText]);  
 
   const handleSearch = (searchTerm) => {
     // 여기에서 실제 검색 작업을 수행하고 검색 결과를 setSearchResults로 업데이트합니다.
@@ -32,10 +44,45 @@ function BookRequestListPage() {
       <Divider />
       <PageContentTitle>구매 요청 도서</PageContentTitle>
       <SearchBar onSearch={handleSearch} />
-      <BookCardContainer>
-        {searchResults.map((searchResult) => {
-          return <BookCard key={searchResult.id} book={searchResult} />;
-        })}
+      <OrderByContainer>
+        {/* 버튼 클릭하면 책제목/저자 가다다순으로 정렬 */}
+        <OrderByButton
+          onClick={() => { setAscOrderbyValue('title'); }}
+          style={{            
+            cursor: 'pointer',
+            fontWeight: AscOrderByValue === 'title' ? '700' : '400'
+          }}
+        >
+          책제목 (가나다순)
+        </OrderByButton>
+          |
+        <OrderByButton
+          onClick={() => { setAscOrderbyValue('author'); }}
+          style={{
+            cursor: 'pointer',
+            fontWeight: AscOrderByValue === 'author' ? '700' : '400'
+          }}
+        >
+          저자 (가나다순)
+        </OrderByButton>
+
+      </OrderByContainer>
+      <BookCardContainer>       
+         {searchResults
+          .sort((a, b) => {
+            const aValue = a[AscOrderByValue];
+            const bValue = b[AscOrderByValue];
+            return aValue > bValue ? 1 : (aValue < bValue ? -1 : 0)
+          })
+          .map((searchResult) => {
+            return (
+              <BookCard
+                key={searchResult.id}
+                book={searchResult}
+              />
+            );
+          })
+        }
       </BookCardContainer>
       <Divider />
     </PageContainer>

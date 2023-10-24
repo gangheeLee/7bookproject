@@ -4,8 +4,8 @@ import { useState } from "react";
 const ComponentContainer = styled.div`
   display: flex;
   height: 3rem;
-  margin: 1rem 2rem;
-  padding: 0 1rem;
+  margin: 1.2rem 2rem;
+  padding: 0 2rem;
 `;
 const SearchInput = styled.input`
   flex: 8;
@@ -13,6 +13,10 @@ const SearchInput = styled.input`
   border: 1.5px solid #69433a;
   border-radius: 1.5rem;
   padding-left: 1.3rem;
+  
+  &:focus {
+    outline: none;
+    }
 `;
 const SearchButon = styled.button`
   flex: 1;
@@ -22,6 +26,10 @@ const SearchButon = styled.button`
   border: none;
   border-radius: 1.5rem;
   cursor: pointer;
+  
+  &:hover {
+    background-color: #C33740;
+  }
 `;
 
 function SearchBar({ onSearch }) {
