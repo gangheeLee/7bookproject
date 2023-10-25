@@ -46,6 +46,10 @@ const CardFooterButton = styled.button`
   font-size: 1rem;
   border: none;
   border-radius: 0.4rem;
+  
+  &:hover {
+    background-color: #2980b9;
+  }
 `;
 
 function BookCard({ book }) {
