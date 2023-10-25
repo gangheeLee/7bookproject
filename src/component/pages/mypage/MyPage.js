@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import React from "react";
+import "./MyPage";
 
 const OrderMenu = styled.div`
   width: 30%;
@@ -48,26 +49,29 @@ const SubMenu3 = styled.div`
 
 export default function MyPage() {
   return (
-    <OrderMenu>
-      <SubMenu1>
-        <div className="move" style={{ width: "120px" }}>
-          회원정보 수정
-        </div>
-      </SubMenu1>
-      <SubMenu2>
-        <Link to="/orderlist">
+    <>
+      <OrderMenu>
+        <SubMenu1>
           <div className="move" style={{ width: "120px" }}>
-            도서 주문 내역
+            회원정보 수정
           </div>
-        </Link>
-      </SubMenu2>
-      <SubMenu3>
-        <Link to="/booksale">
-          <div className="move" style={{ width: "120px" }}>
-            도서 판매 내역
-          </div>
-        </Link>
-      </SubMenu3>
-    </OrderMenu>
+        </SubMenu1>
+        <SubMenu2>
+          <Link to="/orderlist" style={{ textDecoration: "none" }}>
+            <div className="move" style={{ width: "120px" }}>
+              도서 주문 내역
+            </div>
+          </Link>
+        </SubMenu2>
+        <SubMenu3>
+          <Link to="/booksale" style={{ textDecoration: "none" }}>
+            <div className="move" style={{ width: "120px" }}>
+              도서 판매 내역
+            </div>
+          </Link>
+        </SubMenu3>
+      </OrderMenu>
+      <div>회원정보 수정</div>
+    </>
   );
 }
