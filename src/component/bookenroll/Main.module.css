@@ -10,13 +10,13 @@
 .bookEnroll{
     
     width: 100%;
-    height: 1200px;
+    /* height: 1000px; */
     
 }
 
 .enr {
-    margin-left: 10.4em;
-    font-size: 30px;
+    padding-left: 100px;
+    font-size: 25px;
     
 }
 h1 {
@@ -32,7 +32,7 @@ h1 {
     width: 350px;
     height: 500px;
     margin-top: 6em;
-    margin-left: 19.9em;
+    margin-left: 100px;
     /* background-image: "./bagic.png"; */
 }
 
@@ -45,28 +45,32 @@ h1 {
   position: absolute;
     padding:19px;
     background-color:#ffffff;
-    color: #000000;
     cursor: pointer;
     height: 24px;
-    top: -5.2em;
-    left: 15.3em;
-    
+    padding-top: -5.2em;
+    left: 170px;
+    font-size: 16px;
+  /* bottom: 40px; */
+  color: #666;
+  font-weight: bold;
   }
 
 .file {
   position: absolute;
     width: 30%;
-    margin-top: 7em;
-    margin-left: 5em;
+    padding-top: 7em;
+    padding-left: 5em;
+    
 }
 
 .Btn {
     position: absolute;
-    padding: 20px;
+    padding:19px;
+    height: 24px;
     background-color:#ffffff;
     color: #000000;
     cursor: pointer;
-    margin-left: 11em;
+    margin-left: 50px;
 }
 
 
@@ -75,7 +79,7 @@ h1 {
 .bookn {
     position: absolute;
     top: 30px;
-    left: 21em;
+    left: 550px;
     margin-top: 11em;
     font-size: 40px;
     
@@ -84,10 +88,10 @@ h1 {
 .Info {
     position: absolute;
     
-    width: 50%;
-    height: 600px;
+    width: 5%;
+    height: 100px;
     float: right;
-    right: 14.1em;
+    right:890px;
     padding: 25px 0px;
     margin-bottom: 11em;
     font-size: 25px;
@@ -103,11 +107,11 @@ h1 {
 .state {
 
     position: absolute;
-    width: 400px;
-    height: 600px;
+    width: 200px;
+    /* height: 200px; */
     float: right;
-    margin-left: 90em;
-    top: 29em;
+    margin-left: 1000px;
+    top: 600px;
 }
 
 .state input {
@@ -116,7 +120,7 @@ h1 {
 }
 
 .Sfont {
-    font-size: 35px;
+    font-size: 30px;
 }
 
 input[type="checkbox"]{
@@ -126,8 +130,8 @@ input[type="checkbox"]{
   }
 input[type="checkbox"] + label{
     display: inline-block;
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     border:3px solid #707070;
     position: relative;
     top: 25px;
@@ -136,8 +140,8 @@ input[type="checkbox"] + label{
 input[id="check1"]:checked + label::after{
     content:'✔';
     font-size: 25px;
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     text-align: center;
     position: absolute;
     left: 0;
@@ -147,8 +151,8 @@ input[id="check1"]:checked + label::after{
   input[id="check2"]:checked + label::after{
     content:'✔';
     font-size: 25px;
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     text-align: center;
     position: absolute;
     left: 0;
@@ -157,9 +161,9 @@ input[id="check1"]:checked + label::after{
 
   input[id="check3"]:checked + label::after{
     content:'✔';
-    font-size: 25px;
-    width: 50px;
-    height: 50px;
+    font-size: 10 px;
+    width: 30px;
+    height: 30px;
     text-align: center;
     position: absolute;
     left: 0;
@@ -168,9 +172,9 @@ input[id="check1"]:checked + label::after{
 
   input[id="check4"]:checked + label::after{
     content:'✔';
-    font-size: 25px;
-    width: 50px;
-    height: 50px;
+    font-size: 10px;
+    width: 30px;
+    height: 30px;
     text-align: center;
     position: relative;
     left: 0;
@@ -178,27 +182,26 @@ input[id="check1"]:checked + label::after{
   }
 
   .chbox {
-    padding-top: 4em;
+    /* padding-top: 4em; */
     
   }
   .cb1 {
-    margin-bottom: 2.5em;
+    /* margin-bottom: 2.5em; */
   }
 
   .cb2 {
-    margin-bottom: 2.5em;
+    /* margin-bottom: 2.5em; */
   }
 
   .cb3 {
-    margin-bottom: 2.5em;
+    /* margin-bottom: 2.5em; */
   }
 
   .cb4 {
-    margin-bottom: 2.5em;
+    /* margin-bottom: 2.5em; */
   }
   
   .box1 {
-    
     position: relative;
   
   }
@@ -209,33 +212,41 @@ input[id="check1"]:checked + label::after{
     height: 300px;
     position: relative;
     float: right;
-    margin-right: 8em;
-    font-size: 35px;
-    top: -48.5vh;
+    padding-left: 20em;
+    font-size: 30px;
+    bottom:550px;
+    right:220px;
   }
 
   .buybox {
-    margin-top: -23.5em;
+    margin-top: -450px;
     float: right;
     position: absolute;
-    margin-left: 120em;
+    margin-left: 1000px;
     width: 200px;
     height: 50px;
   }
 
   .sendbtn {
-    position: absolute;
-    margin-top: 5em;
-    margin-left: 40em;
+    position: relative;
+    /* margin-top: 500px; */
+    /* margin-left: 450px; */
     background-color:#774836;
     text-align: center;
     font-size: 23px;
-    width: 150px;
+    width: 100px;
     height: 50px;
     border-radius: 6%;
     color: #ffffff;
     cursor: pointer;
     
+    
   }
 
+  .sendbox {
+    /* height: 500px; */
+    /* background: #e3cda9; */
+    /* clear: both; */
+    margin-top: 200px;
+  }
 
