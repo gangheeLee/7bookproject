@@ -43,7 +43,7 @@ function Search() {
             className="searchbar"
             style={{ fontSize: "20px" }}
           />
-          <Link to="/searchinfo/React">
+          <Link to="/searchinfo/React" style={{ textDecoration: "none" }}>
             <input type="submit" value="도서 조회" className="searchbtn" />
           </Link>
         </form>
