@@ -32,7 +32,7 @@ function Banner() {
       <BannerBox style={{ textAlign: "center", fontSize: "32px" }}>
         베스트 셀러
         {/* <Carousel> */}
-        <Slider {...settings}>
+        <Slider {...settings} style={{ textDecoration: "none" }}>
           <div>
             <img
               src="asset/bestseller5.png"

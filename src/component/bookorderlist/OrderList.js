@@ -88,14 +88,14 @@ function BookOrderList() {
           </div>
         </SubMenu1>
         <SubMenu2>
-          <Link to="/orderlist">
+          <Link to="/orderlist" style={{ textDecoration: "none" }}>
             <div className="move" style={{ width: "120px" }}>
               도서 주문 내역
             </div>
           </Link>
         </SubMenu2>
         <SubMenu3>
-          <Link to="/booksale">
+          <Link to="/booksale" style={{ textDecoration: "none" }}>
             <div className="move" style={{ width: "120px" }}>
               도서 판매 내역
             </div>

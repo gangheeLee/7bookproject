@@ -51,7 +51,7 @@ function Logo() {
         <Empty>{/*여택 맞추기용*/}</Empty>
         <Title>
           {/* <Link to="/"> */}
-          <Link to="/">
+          <Link to="/" style={{ textDecoration: "none" }}>
             <img
               src="asset/logo_image.png"
               style={{
@@ -65,30 +65,60 @@ function Logo() {
         </Title>
         <User>
           <div className="move" style={{ width: "50px" }}>
-            <Link to={"/login"}>로그인</Link>
+            <Link
+              to={"/login"}
+              style={{ textDecoration: "none", color: "white" }}
+            >
+              로그인
+            </Link>
           </div>
           <div className="move" style={{ width: "60px" }}>
-            <Link to={"/register"}>회원가입</Link>
+            <Link
+              to={"/register"}
+              style={{ textDecoration: "none", color: "white" }}
+            >
+              회원가입
+            </Link>
           </div>
           <div className="move" style={{ width: "70px" }}>
-            <Link to={"/mypage"}>마이페이지</Link>
+            <Link
+              to={"/mypage"}
+              style={{ textDecoration: "none", color: "white" }}
+            >
+              마이페이지
+            </Link>
           </div>
         </User>
       </Box>
       <hr />
       {/* 상단 메뉴 링크 구성 */}
       <Menu>
+        <Link
+          to={"/bookenroll"}
+          style={{ textDecoration: "none", color: "black" }}
+        >
+          도서 등록
+        </Link>
         <div className="move" style={{ width: "100px" }}>
-          <Link to={"/bookenroll"}>도서 등록</Link>
-        </div>
-        <div className="move" style={{ width: "100px" }}>
-          <Link to={"/booksearch"}>도서 조회</Link>
+          <Link
+            to={"/booksearch"}
+            style={{ textDecoration: "none", color: "black" }}
+          >
+            도서 조회
+          </Link>
         </div>
         <div className="move" style={{ width: "200px" }}>
-          <Link to={"/bookinfo"}>응찰 현황 / 가격 비교</Link>
+          <Link
+            to={"/bookinfo"}
+            style={{ textDecoration: "none", color: "black" }}
+          >
+            응찰 현황 / 가격 비교
+          </Link>
         </div>
         <div className="move" style={{ width: "100px" }}>
-          <Link to={"/qna"}>Q&A</Link>
+          <Link to={"/qna"} style={{ textDecoration: "none", color: "black" }}>
+            Q&A
+          </Link>
         </div>
       </Menu>
       <hr />
