@@ -43,6 +43,7 @@ function App() {
           <Route path="/que" element={<Que />} />
           <Route path="/bookinfo" element={<BookInfo />} />
           <Route path="booksearch" element={<BookRequestListPage />} />
+          <Route path="/mypage" element={<MyPage />} />
         </Routes>
       </MainBox>
     </div>

@@ -9,6 +9,7 @@ const OrderBox = styled.div`
   height: 100%;
   display: flex;
 `;
+
 const OrderMenuBox = styled.div`
   padding-left: 100px;
   width: 70%;
@@ -83,19 +84,27 @@ function BookOrderList() {
     <OrderBox>
       <OrderMenu>
         <SubMenu1>
-          <div className="move" style={{ width: "120px" }}>
-            회원정보 수정
-          </div>
+          <Link to="/mypage" style={{ textDecoration: "none", color: "black" }}>
+            <div className="move" style={{ width: "120px" }}>
+              회원정보 수정
+            </div>
+          </Link>
         </SubMenu1>
         <SubMenu2>
-          <Link to="/orderlist" style={{ textDecoration: "none" }}>
+          <Link
+            to="/orderlist"
+            style={{ textDecoration: "none", color: "white" }}
+          >
             <div className="move" style={{ width: "120px" }}>
               도서 주문 내역
             </div>
           </Link>
         </SubMenu2>
         <SubMenu3>
-          <Link to="/booksale" style={{ textDecoration: "none" }}>
+          <Link
+            to="/booksale"
+            style={{ textDecoration: "none", color: "black" }}
+          >
             <div className="move" style={{ width: "120px" }}>
               도서 판매 내역
             </div>
