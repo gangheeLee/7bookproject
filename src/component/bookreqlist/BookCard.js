@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 const CardContainer = styled.div`
   width: 30%;
@@ -53,7 +54,8 @@ const CardFooterButton = styled.button`
 `;
 
 function BookCard({ book }) {
-  
+  const navigate = useNavigate();
+
   return (
     <CardContainer>
       <CardImageContainer>
@@ -64,10 +66,18 @@ function BookCard({ book }) {
         <CardBodyAuthor>{book.author}</CardBodyAuthor>
       </CardBody>
       <CardFooter>
-        <CardFooterButton>        
+        <CardFooterButton
+         onClick={() => {
+          navigate(`/book-request/detail/${book.id}`)
+        }}
+        >        
           상세조회
         </CardFooterButton>
-        <CardFooterButton>
+        <CardFooterButton
+        onClick={() => {
+          navigate(`/book-request/bid/${book.id}`)
+        }}
+         >
           응찰참여
         </CardFooterButton>
       </CardFooter>

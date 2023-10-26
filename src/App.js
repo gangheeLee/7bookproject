@@ -15,7 +15,6 @@ import Anw from "./component/answer/Answer";
 import Qna from "./component/qna/Qna";
 import Que from "./component/question/Question";
 import BookInfo from "./component/bookInfo/BookInfo";
-import Searchs from "./component/mainpage/Searchs";
 
 const MainBox = styled.div`
   background: #e3cda9;
