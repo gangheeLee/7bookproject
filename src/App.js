@@ -2,7 +2,6 @@ import Logo from "./component/mainpage/LogoAndMenu";
 import Banner from "./component/mainpage/Banner";
 import { Routes, Route, Link } from "react-router-dom";
 import Footer from "./component/mainpage/Footer";
-import Search from "./component/mainpage/Search";
 import styled from "styled-components";
 import BookOrderList from "./component/bookorderlist/OrderList";
 import BookSaleList from "./component/booksalelist/SaleList";
@@ -16,6 +15,7 @@ import Anw from "./component/answer/Answer";
 import Qna from "./component/qna/Qna";
 import Que from "./component/question/Question";
 import BookInfo from "./component/bookInfo/BookInfo";
+import Searchs from "./component/mainpage/Searchs";
 
 const MainBox = styled.div`
   background: #e3cda9;

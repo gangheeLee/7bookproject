@@ -5,8 +5,8 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Slider from "react-slick";
 import "./slick.css";
 import "./slick-theme.css";
-import Search from "./Search";
 import Footer from "./Footer";
+import Searchs from "./Searchs";
 
 const BannerBox = styled.div`
   background: #e3cda9;
@@ -32,7 +32,7 @@ function Banner() {
       <BannerBox style={{ textAlign: "center", fontSize: "32px" }}>
         베스트 셀러
         {/* <Carousel> */}
-        <Slider {...settings} style={{ textDecoration: "none" }}>
+        <Slider {...settings}>
           <div>
             <img
               src="asset/bestseller5.png"
@@ -71,7 +71,7 @@ function Banner() {
           {/* 추가 이미지 슬라이드 항목들 */}
         </Slider>
       </BannerBox>
-      <Search />
+      <Searchs />
       <Footer />
     </div>
   );
