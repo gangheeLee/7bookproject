@@ -11,6 +11,8 @@ import RegisterForm from "./component/pages/register/RegisterForm";
 import MyPage from "./component/pages/mypage/MyPage";
 import SearchInfo from "./component/booksearch/SearchInfo";
 import BookRequestListPage from "./component/page/bookreqlist";
+import BookDetailPage from "./component/page/bookdetail";
+import BookBidPage from "./component/page/bookbid";
 import Bookenroll from "./component/bookenroll/Main";
 import Anw from "./component/answer/Answer";
 import Qna from "./component/qna/Qna";
@@ -43,6 +45,8 @@ function App() {
           <Route path="/que" element={<Que />} />
           <Route path="/bookinfo" element={<BookInfo />} />
           <Route path="booksearch" element={<BookRequestListPage />} />
+          <Route path="/book-request/detail/:id" element={<BookDetailPage />} />
+          <Route path="/book-request/bid/:id" element={<BookBidPage />} />
         </Routes>
       </MainBox>
     </div>
