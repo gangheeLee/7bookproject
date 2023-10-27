@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import React from "react";
+import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -80,6 +80,26 @@ export default function MyPage() {
   const notify = () => {
     toast("회원정보가 수정되었습니다.");
   };
+
+  // const PWcheck = () => {
+  //   // 입력한 데이터 담기
+  //   const [userPW, setUserPW] = useState({
+  //     passwd: "",
+  //     passwdCheck: "",
+  //   });
+
+  //   // 입력값 바뀔 때마다 저장하기
+  //   const handleInput = (e) => {
+  //     setUserPW({
+  //       ...userPW,
+  //       [e.target.passwd]: e.target.value,
+  //     });
+  //   };
+  //   const { passwd, passwdCheck } = userPW;
+
+  //   // 비밀번호와 비밀번호 확인 같은지 체크하기
+  //   const isSame = passwd === passwdCheck;
+  // };
   return (
     <UserInfoBox>
       <UserInfoMenu>
@@ -124,13 +144,21 @@ export default function MyPage() {
             <tr>
               <StyledTableTd>비밀번호</StyledTableTd>
               <StyledTableTd>
-                <input type="password" style={{ width: "300px" }}></input>
+                <input
+                  type="password"
+                  // value={passwd}
+                  style={{ width: "300px" }}
+                ></input>
               </StyledTableTd>
             </tr>
             <tr>
               <StyledTableTd>비밀번호 확인</StyledTableTd>
               <StyledTableTd>
-                <input type="password" style={{ width: "300px" }}></input>
+                <input
+                  type="password"
+                  // value={passwdCheck}
+                  style={{ width: "300px" }}
+                ></input>
               </StyledTableTd>
             </tr>
             <tr>

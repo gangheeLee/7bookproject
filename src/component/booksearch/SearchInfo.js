@@ -45,7 +45,7 @@ function SearchInfo() {
         searchinfo.map((item) => (
           <div key={item.id} className="infobox">
             <BookContent>
-              <div className="image">이미지 자리입니다.{item.Image}</div>
+              <img className="image" src={item.Image} />
               <BookTAP>
                 <div className="bookcontent">제목 : {item.BookTitle}</div>
                 <div className="bookcontent">저자 : {item.Author}</div>

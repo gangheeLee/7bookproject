@@ -45,7 +45,7 @@ const Menu = styled.div`
 
 function Logo() {
   return (
-    <>
+    <div>
       {/* 사이트 제목 , 로그인 회원가입 마이페이지 링크 구성 */}
       <Box>
         <Empty>{/*여택 맞추기용*/}</Empty>
@@ -122,7 +122,7 @@ function Logo() {
         </div>
       </Menu>
       <hr />
-    </>
+    </div>
   );
 }
 

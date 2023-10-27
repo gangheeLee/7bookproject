@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 .modal{
-  position:absolute;
+  /* position:absolute; */
   top:0;
   left:0;
   width: 100%;
@@ -43,7 +43,8 @@
 }
 
 .modalArticle{
-  position: relative;
+  /* position: relative; */
+  /* display: flex; */
   overflow-y: scroll;
   height: calc(100% - 144px);
   margin: 0 11px 0 35px;
@@ -80,8 +81,10 @@ li{
 }
 
 .modalCheck {
-  margin-left:0;
-  margin-bottom: 3%;
+  /* height: 4vh; */
+  margin: 0 auto;
+  margin-left: 200px;
+  display: block;
 }
 
 
@@ -89,6 +92,7 @@ li{
   font-size: 80%;
   color: #69433A; 
   margin-bottom: 5%;
+display: inline;
 }
 
 .modalClose {
@@ -102,6 +106,7 @@ li{
   border: 1px solid white;
   cursor: pointer;
   margin-left: 5%;
+  display: block;
 }
 
 .modalClose:hover {
@@ -115,4 +120,15 @@ li{
   border: 1px solid white;
   cursor: pointer;
   margin-left: 5%;
+}
+
+.modal {
+  /* display: flex; */
+  width: 50%;
+  height: 50%;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  align-items: center;
+  background-color: aliceblue;
 }
