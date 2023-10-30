@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useForm, useController } from "react-hook-form";
 
 const UserInfoBox = styled.div`
   height: 100vh;
@@ -76,30 +77,34 @@ const StyledTableTd = styled.td`
   }
 `;
 
+const PWmessage = styled.div`
+  font-size: 8px;
+  color: red;
+`;
+
 export default function MyPage() {
   const notify = () => {
     toast("회원정보가 수정되었습니다.");
   };
 
-  // const PWcheck = () => {
-  //   // 입력한 데이터 담기
-  //   const [userPW, setUserPW] = useState({
-  //     passwd: "",
-  //     passwdCheck: "",
-  //   });
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [passwordsMatch, setPasswordsMatch] = useState(true);
 
-  //   // 입력값 바뀔 때마다 저장하기
-  //   const handleInput = (e) => {
-  //     setUserPW({
-  //       ...userPW,
-  //       [e.target.passwd]: e.target.value,
-  //     });
-  //   };
-  //   const { passwd, passwdCheck } = userPW;
+  const handlePasswordChange = (e) => {
+    const newPassword = e.target.value;
+    setPassword(newPassword);
+    // 비밀번호와 비밀번호 확인 필드 값을 비교하여 상태 업데이트
+    setPasswordsMatch(newPassword === confirmPassword);
+  };
 
-  //   // 비밀번호와 비밀번호 확인 같은지 체크하기
-  //   const isSame = passwd === passwdCheck;
-  // };
+  const handleConfirmPasswordChange = (e) => {
+    const newConfirmPassword = e.target.value;
+    setConfirmPassword(newConfirmPassword);
+    // 비밀번호와 비밀번호 확인 필드 값을 비교하여 상태 업데이트
+    setPasswordsMatch(password === newConfirmPassword);
+  };
+
   return (
     <UserInfoBox>
       <UserInfoMenu>
@@ -146,8 +151,10 @@ export default function MyPage() {
               <StyledTableTd>
                 <input
                   type="password"
-                  // value={passwd}
-                  style={{ width: "300px" }}
+                  value={password}
+                  onChange={handlePasswordChange}
+                  style={{ width: "450px" }}
+                  placeholder="비밀번호(영문, 숫자, 특수문자 포함 8자 ~ 20자)"
                 ></input>
               </StyledTableTd>
             </tr>
@@ -156,21 +163,26 @@ export default function MyPage() {
               <StyledTableTd>
                 <input
                   type="password"
-                  // value={passwdCheck}
-                  style={{ width: "300px" }}
+                  value={confirmPassword}
+                  onChange={handleConfirmPasswordChange}
+                  style={{ width: "450px" }}
+                  placeholder="비밀번호 확인"
                 ></input>
+                {!passwordsMatch && (
+                  <PWmessage>비밀번호가 일치하지 않습니다.</PWmessage>
+                )}
               </StyledTableTd>
             </tr>
             <tr>
               <StyledTableTd>이메일</StyledTableTd>
               <StyledTableTd>
-                <input type="email" style={{ width: "300px" }}></input>
+                <input type="email" style={{ width: "450px" }}></input>
               </StyledTableTd>
             </tr>
             <tr>
               <StyledTableTd>휴대전화</StyledTableTd>
               <StyledTableTd>
-                <input type="text" style={{ width: "300px" }}></input>
+                <input type="text" style={{ width: "450px" }}></input>
               </StyledTableTd>
             </tr>
             <tr>
