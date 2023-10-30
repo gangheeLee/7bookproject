@@ -1,9 +1,8 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useForm, useController } from "react-hook-form";
 
 const UserInfoBox = styled.div`
   height: 100vh;
@@ -176,13 +175,21 @@ export default function MyPage() {
             <tr>
               <StyledTableTd>이메일</StyledTableTd>
               <StyledTableTd>
-                <input type="email" style={{ width: "450px" }}></input>
+                <input
+                  type="email"
+                  placeholder="aaaa@naver.com"
+                  style={{ width: "450px" }}
+                ></input>
               </StyledTableTd>
             </tr>
             <tr>
               <StyledTableTd>휴대전화</StyledTableTd>
               <StyledTableTd>
-                <input type="text" style={{ width: "450px" }}></input>
+                <input
+                  type="text"
+                  placeholder="000-0000-0000"
+                  style={{ width: "450px" }}
+                ></input>
               </StyledTableTd>
             </tr>
             <tr>
