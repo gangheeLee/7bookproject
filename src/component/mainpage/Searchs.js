@@ -19,7 +19,9 @@ const SearchTitle = styled.div`
 
 const BookLink = styled.div`
   width: 800px;
-  padding-left: 350px;
+  margin: 0 auto;
+  // padding-left: 350px;
+  align-item: center;
   font-size: 20px;
   justify-content: space-between;
   display: flex;

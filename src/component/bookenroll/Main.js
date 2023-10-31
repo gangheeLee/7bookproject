@@ -81,7 +81,7 @@ function Bookenroll(props) {
             <p className={styles.Sfont}>상품 상태</p>
             <div className={styles.chbox}>
               <div className={styles.cb1}>
-                <input type="checkbox" id="check1" />
+                <input className="check1" type="checkbox" id="check1" />
                 <label for="check1"></label>
                 <input
                   className={styles.box1}
@@ -91,7 +91,7 @@ function Bookenroll(props) {
                 ></input>
               </div>
               <div className={styles.cb2}>
-                <input type="checkbox" id="check2" />
+                <input type="checkbox" className="check1" id="check2" />
                 <label for="check2"></label>
                 <input
                   className={styles.box1}
@@ -101,7 +101,7 @@ function Bookenroll(props) {
                 ></input>
               </div>
               <div className={styles.cb3}>
-                <input type="checkbox" id="check3" />
+                <input type="checkbox" className="check1" id="check3" />
                 <label for="check3"></label>
                 <input
                   className={styles.box1}
@@ -111,7 +111,7 @@ function Bookenroll(props) {
                 ></input>
               </div>
               <div className={styles.cb4}>
-                <input type="checkbox" id="check4" />
+                <input type="checkbox" className="check1" id="check4" />
                 <label for="check4"></label>
                 <input
                   className={styles.box1}

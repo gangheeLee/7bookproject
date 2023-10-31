@@ -123,12 +123,12 @@ h1 {
     font-size: 30px;
 }
 
-input[type="checkbox"]{
+input.check1[type="checkbox"]{
     /* margin:-4px 3 0 5px;  */
     vertical-align:middle;
     display: none;
   }
-input[type="checkbox"] + label{
+input.check1[type="checkbox"] + label{
     display: inline-block;
     width: 30px;
     height: 30px;
@@ -137,7 +137,7 @@ input[type="checkbox"] + label{
     top: 25px;
     left: 0.5px;
   }
-input[id="check1"]:checked + label::after{
+input.check1[id="check1"]:checked + label::after{
     content:'✔';
     font-size: 25px;
     width: 30px;
@@ -148,7 +148,7 @@ input[id="check1"]:checked + label::after{
     top:0;
   }
 
-  input[id="check2"]:checked + label::after{
+  input.check1[id="check2"]:checked + label::after{
     content:'✔';
     font-size: 25px;
     width: 30px;
@@ -159,7 +159,7 @@ input[id="check1"]:checked + label::after{
     top:0;
   }
 
-  input[id="check3"]:checked + label::after{
+  input.check1[id="check3"]:checked + label::after{
     content:'✔';
     font-size: 10 px;
     width: 30px;
@@ -170,7 +170,7 @@ input[id="check1"]:checked + label::after{
     top:0;
   }
 
-  input[id="check4"]:checked + label::after{
+  input.check1[id="check4"]:checked + label::after{
     content:'✔';
     font-size: 10px;
     width: 30px;

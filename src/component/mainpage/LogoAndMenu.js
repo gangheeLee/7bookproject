@@ -107,14 +107,14 @@ function Logo() {
             도서 조회
           </Link>
         </div>
-        {/* <div className="move" style={{ width: "200px" }}>
+        <div className="move" style={{ width: "200px" }}>
           <Link
-            to={"/bookinfo"}
+            to={"/history"}
             style={{ textDecoration: "none", color: "black" }}
           >
             응찰 현황 / 가격 비교
           </Link>
-        </div> */}
+        </div>
         <div className="move" style={{ width: "100px" }}>
           <Link to={"/qna"} style={{ textDecoration: "none", color: "black" }}>
             Q&A

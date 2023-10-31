@@ -9,7 +9,8 @@ import Footer from "./Footer";
 import Searchs from "./Searchs";
 
 const BannerBox = styled.div`
-  background: #e3cda9;
+  display: block;
+  // background: #e3cda9;
   height: 60vh;
   margin: 0 auto;
   padding-top: 20px;
@@ -72,7 +73,6 @@ function Banner() {
         </Slider>
       </BannerBox>
       <Searchs />
-      <Footer />
     </div>
   );
 }
