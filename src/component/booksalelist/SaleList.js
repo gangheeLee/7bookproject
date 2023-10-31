@@ -10,9 +10,11 @@ const SaleBox = styled.div`
   display: flex;
 `;
 const SaleMenuBox = styled.div`
-  padding-left: 100px;
+  padding-left: 250px;
   width: 70%;
   height: 100vh;
+  margin: 0 auto;
+  align-item: center;
 `;
 
 const SaleMenu = styled.div`

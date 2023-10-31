@@ -11,9 +11,11 @@ const OrderBox = styled.div`
 `;
 
 const OrderMenuBox = styled.div`
-  padding-left: 100px;
+  padding-left: 250px;
   width: 70%;
   height: 100vh;
+  margin: 0 auto;
+  align-item: center;
 `;
 
 const OrderMenu = styled.div`

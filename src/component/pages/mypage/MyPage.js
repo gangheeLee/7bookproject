@@ -46,15 +46,15 @@ const SubMenu3 = styled.div`
 const UserInfoTitle = styled.div`
   width:100%
   height:60vh;
-  padding-top: 50px;
-  padding-left: 100px;
+  padding-top: 20px;
+  padding-left: 200px;
   font-size: 24px;
   `;
 const UserInfo = styled.div`
   width: 800px;
   height: 60vh;
   margin-top: 50px;
-  margin-right: 100px;
+  padding-left: 100px;
 `;
 
 const MypageButton = styled.button`
@@ -77,7 +77,7 @@ const StyledTableTd = styled.td`
 `;
 
 const PWmessage = styled.div`
-  font-size: 8px;
+  font-si ze: 8px;
   color: red;
 `;
 
@@ -134,7 +134,7 @@ export default function MyPage() {
         </SubMenu3>
       </UserInfoMenu>
       <UserInfoTitle>
-        회원정보 수정
+        <p style={{ paddingLeft: "150px" }}>회원정보 수정</p>
         <UserInfo>
           <table style={{ border: "none" }}>
             <tr>
@@ -149,6 +149,7 @@ export default function MyPage() {
               <StyledTableTd>비밀번호</StyledTableTd>
               <StyledTableTd>
                 <input
+                  className="searchbar"
                   type="password"
                   value={password}
                   onChange={handlePasswordChange}
@@ -162,6 +163,7 @@ export default function MyPage() {
               <StyledTableTd>
                 <input
                   type="password"
+                  className="searchbar"
                   value={confirmPassword}
                   onChange={handleConfirmPasswordChange}
                   style={{ width: "450px" }}
@@ -177,6 +179,7 @@ export default function MyPage() {
               <StyledTableTd>
                 <input
                   type="email"
+                  className="searchbar"
                   placeholder="aaaa@naver.com"
                   style={{ width: "450px" }}
                 ></input>
@@ -187,6 +190,7 @@ export default function MyPage() {
               <StyledTableTd>
                 <input
                   type="text"
+                  className="searchbar"
                   placeholder="000-0000-0000"
                   style={{ width: "450px" }}
                 ></input>
