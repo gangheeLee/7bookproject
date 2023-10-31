@@ -5,19 +5,23 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Slider from "react-slick";
 import "./slick.css";
 import "./slick-theme.css";
-import Footer from "./Footer";
 import Searchs from "./Searchs";
 
+const BannerAndSearchBox = styled.div`
+  width: 100%;
+`;
+
 const BannerBox = styled.div`
-  display: block;
+  // display: flex;
   // background: #e3cda9;
   height: 60vh;
   margin: 0 auto;
   padding-top: 20px;
   padding-bottom: 30px;
   justify-content: center;
+  text-align: center;
   align-items: center;
-  width: 70%;
+  width: 20%;
 `;
 
 function Banner() {
@@ -29,8 +33,10 @@ function Banner() {
     slidesToScroll: 1,
   };
   return (
-    <div>
-      <BannerBox style={{ textAlign: "center", fontSize: "32px" }}>
+    <BannerAndSearchBox>
+      <BannerBox
+        style={{ textAlign: "center", width: "800px", fontSize: "32px" }}
+      >
         베스트 셀러
         {/* <Carousel> */}
         <Slider {...settings}>
@@ -73,7 +79,7 @@ function Banner() {
         </Slider>
       </BannerBox>
       <Searchs />
-    </div>
+    </BannerAndSearchBox>
   );
 }
 
