@@ -8,6 +8,8 @@ const CardContainer = styled.div`
 
 const CardImageContainer = styled.div`
   min-height: 150px;
+  max-height: 490px;
+  overflow: hidden;  
   background-color: #fff;
   border: 1px solid #000;
   border-bottom: none;
