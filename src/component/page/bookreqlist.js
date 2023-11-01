@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PageContainer from "../bookreqlist/PageContainer";
 import PageContentTitle from "../bookreqlist/PageContentTitle";
-import Divider from "../bookreqlist/Divider";
 import SearchBar from "../bookreqlist/SearchBar";
 import BookCardContainer from "../bookreqlist/BookCardContainer";
 import BookCard from "../bookreqlist/BookCard";
@@ -41,7 +40,6 @@ function BookRequestListPage() {
 
   return (
     <PageContainer>
-      <Divider />
       <PageContentTitle>구매 요청 도서</PageContentTitle>
       <SearchBar onSearch={handleSearch} />
       <OrderByContainer>
@@ -84,7 +82,6 @@ function BookRequestListPage() {
           })
         }
       </BookCardContainer>
-      <Divider />
     </PageContainer>
   );
 }
