@@ -19,6 +19,8 @@ import RegisterPage from "./component/pages/register/RegisterPage";
 import Footer from "./component/mainpage/Footer";
 import Complete from "./component/idpwsearch/SearchIdComplete";
 import Succeed from "./component/idpwsearch/SearchPwComlpete";
+import Header from "./component/mainpage/Header";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const MainBox = styled.div`
   background: #e3cda9;
@@ -35,7 +37,7 @@ function App() {
     <div className="App" style={{ background: "#e3cda9" }}>
       {/* // 메인페이지 */}
       <MainBox>
-        <Logo />
+        <Header />
         <BodyBox>
           <Routes>
             <Route path="" element={<Banner />} />

@@ -41,6 +41,8 @@ const LoginButtonContainer = styled.div`
 const LoginButton = styled.button`
   background-color: #69433a;
   border: none;
+  text-decoration: none;
+
   border-radius: 10px;
   color: #ffffff;
   padding: 0.4rem 0;
@@ -152,14 +154,21 @@ export default function Login() {
         {/* disabled 속성은 notAllow 변수값에 따라 버튼 활성화 또는 비활성화 */}
         <ButtonContainer>
           <LoginButtonContainer>
-            <LoginButton onClick={LoginClick} type="submit">
+            <LoginButton
+              onClick={LoginClick}
+              type="submit"
+              style={{ textDecoration: "none", color: "white" }}
+            >
               <Link to="/">로그인</Link>
             </LoginButton>
           </LoginButtonContainer>
 
           <SecondaryButtonContainer>
             <SecondaryButton type="button">ID/PW 찾기</SecondaryButton>
-            <SecondaryButton type="button">
+            <SecondaryButton
+              type="button"
+              style={{ textDecoration: "none", color: "white" }}
+            >
               <Link to="/register">회원가입</Link>
             </SecondaryButton>
           </SecondaryButtonContainer>

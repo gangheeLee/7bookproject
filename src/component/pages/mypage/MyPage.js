@@ -44,12 +44,11 @@ const SubMenu3 = styled.div`
 `;
 
 const UserInfoTitle = styled.div`
-  width:100%
-  height:60vh;
-  padding-top: 20px;
+  width: 100%;
+  height: 60vh;
   padding-left: 200px;
   font-size: 24px;
-  `;
+`;
 const UserInfo = styled.div`
   width: 800px;
   height: 60vh;
@@ -133,8 +132,14 @@ export default function MyPage() {
           </Link>
         </SubMenu3>
       </UserInfoMenu>
-      <UserInfoTitle>
-        <p style={{ paddingLeft: "150px" }}>회원정보 수정</p>
+      <UserInfoTitle style={{ paddingTop: "30px" }}>
+        <p
+          style={{
+            paddingLeft: "140px",
+          }}
+        >
+          회원정보 수정
+        </p>
         <UserInfo>
           <table style={{ border: "none" }}>
             <tr>

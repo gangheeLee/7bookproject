@@ -33,10 +33,10 @@ H2 {
 }
 
 p {
-  position: relative;
+  /* position: relative;
   font-size: 20px;
   text-align: center;
-  top: 5.5em;
+  top: 5.5em; */
 }
 
 .PColor {
