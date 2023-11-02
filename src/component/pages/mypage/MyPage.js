@@ -77,7 +77,7 @@ const StyledTableTd = styled.td`
 `;
 
 const PWmessage = styled.div`
-  font-si ze: 8px;
+  font-size: 8px;
   color: red;
 `;
 

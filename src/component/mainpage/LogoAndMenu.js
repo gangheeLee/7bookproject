@@ -109,7 +109,7 @@ function Logo() {
         </div>
         <div className="move" style={{ width: "200px" }}>
           <Link
-            to={"/history"}
+            to={"/idsearch"}
             style={{ textDecoration: "none", color: "black" }}
           >
             응찰 현황 / 가격 비교

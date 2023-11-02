@@ -17,6 +17,8 @@ import BookInfo from "./component/bookInfo/BookInfo";
 import History from "./component/history/history";
 import RegisterPage from "./component/pages/register/RegisterPage";
 import Footer from "./component/mainpage/Footer";
+import Complete from "./component/idpwsearch/SearchIdComplete";
+import Succeed from "./component/idpwsearch/SearchPwComlpete";
 
 const MainBox = styled.div`
   background: #e3cda9;
@@ -52,7 +54,9 @@ function App() {
             <Route path="/booksearch" element={<BookRequestListPage />} />
             <Route path="/mypage" element={<MyPage />} />
             <Route path="/history" element={<History />} />
-            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/idsearch" element={<Complete />} />
+            <Route path="/pwsearch" element={<Succeed />} />
+            {/* <Route path="/register" element={<RegisterPage />} /> */}
           </Routes>
         </BodyBox>
         <Footer />
