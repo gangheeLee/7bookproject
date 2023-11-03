@@ -16,10 +16,10 @@
 
 .first {
     /* position: relative; */
-
+    margin-top: 50px;
     border: 1px solid #000000;
-    width: 60%;
-    height: 700px;
+    width: 600px;
+    height: 650px;
     background-color: #ffffff;
     border-collapse: collapse;
     /* top: 100px; */
@@ -38,11 +38,13 @@
 
 
 .input {
-    position: relative;
-    width: 60%;
+    /* position: relative; */
+    width: 400px;
     height: 30px;
+    margin-left: 100px;
+    margin-bottom: 20px;
     /* bottom:10px; */
-    margin-left: 13em;
+    /* margin-left: 13em; */
     border: 1px solid #c2bebe;
 }
 
@@ -52,11 +54,12 @@ input::placeholder {
 }
 
 .cname {
-    position: relative;
-    width: 60%;
+    /* position: relative; */
+    width: 400px;
     height: 400px;
+    margin-left: 100px;
     /* top: 18.5vh; */
-    left: 14.6em;
+    /* left: 14.6em; */
     border: 1px solid #c2bebe;
 
 }
@@ -66,17 +69,17 @@ textarea::placeholder{
 }
 
 .btn {
-    position: relative;
-    padding:30px 80px;
+    /* position: relative; */
+    padding:10px 20px;
     background-color:#774836;
     color: #ffffff;
     border-radius: 8px;
     cursor: pointer;
     font-size: 10px;
     text-align: center;
-    float: right;
-    margin-right: 30em;
-    margin-top: -100px;
+    width: 100px;
+    margin-top:20px;
+    margin-left:360px;
 }
 
 .label {
