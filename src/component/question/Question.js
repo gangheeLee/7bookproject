@@ -8,10 +8,12 @@ function Que() {
         <p className={styles.p1}>Q&A</p>
       </div>
       <div className={styles.first}>
-        <h2 className={styles.target}>질문 대상</h2>
-        <select className={styles.select}>
-          <option></option>
-        </select>
+        <div style={{ marginLeft: "60px" }}>
+          질문 대상
+          <select className={styles.select}>
+            <option></option>
+          </select>
+        </div>
 
         <div>
           <input
