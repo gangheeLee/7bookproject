@@ -6,31 +6,33 @@ import { Link } from "react-router-dom";
 
 const PageContainer = styled.div`
   margin: 0 auto;
-  width: 50%;
+  width: 460px;
 `;
 
 const PageContentTitle = styled.div`
   padding-top: 0.3rem;
-  padding-left: 1.2rem;
-  margin: 1rem 0;
-  font-size: 1.6rem;
+  margin: 2rem 0;
+  font-size: 20px;
   font-weight: 700;
+  text-align: center;
 `;
 
 const LoginBox = styled.div`
   border: 1.5px solid #b5b5b5;
-  background-color: #ffffff;
+  background-color: white;
   border-radius: 1.5rem;
-  padding: 4rem 8rem;
-  margin: 0 3rem 0;
+  padding: 2rem 2rem;
+  margin-bottom: 140px;
 `;
 
 const LoginInputText = styled.input`
   border: 1.5px solid #b5b5b5;
   border-radius: 10px;
-  margin: 0.2rem 0;
+  background: rgba(138, 138, 138, 0.1);
+  margin-bottom: 4px;
+  margin-left: 50px;
   padding: 0.4rem 0;
-  width: 100%;
+  width: 300px;
 `;
 const ButtonContainer = styled.div``;
 
@@ -45,15 +47,19 @@ const LoginButton = styled.button`
 
   border-radius: 10px;
   color: #ffffff;
+  margin-left: 50px;
   padding: 0.4rem 0;
-  width: 100%;
-  height: 4rem;
+  width: 300px;
+  height: 35px;
 `;
 
 const SecondaryButtonContainer = styled.div`
   display: flex;
+  width: 300px;
   justify-content: space-between;
-  margin: 0.4rem 0;
+  margin-top: 0.4rem;
+  margin-left: 50px;
+  margin-right: 200px;
 `;
 const SecondaryButton = styled.button`
   background-color: #69433a;
@@ -62,8 +68,8 @@ const SecondaryButton = styled.button`
   color: #ffffff;
   font-size: 100%;
   text-align: center;
-  width: 100%;
-  height: 4rem;
+  width: 150px;
+  height: 35px;
 
   &:first-child {
     margin-right: 0.2rem;
@@ -81,7 +87,9 @@ const SocialLoginContainer = styled.div`
 const SocialLoginImageContainer = styled.div``;
 
 const SocialLoginImage = styled.img`
-  width: 100%;
+  width: 300px;
+  height: 50px;
+  margin-left: 50px;
 `;
 
 export default function Login() {
@@ -124,13 +132,38 @@ export default function Login() {
   ////////////////////////////////////////////////////////////////////////////////
   const [inputID, setInputID] = useState("");
   const [inputPW, setInputPW] = useState("");
-  const [inputIDMatch, setInputIDMatch] = useState(true);
-  const [inputPWMatch, setInputPWMatch] = useState(true);
 
-  const LoginClick = (e) => {};
+  const LoginClick = (e) => {
+    e.preventDefault();
+    axios
+      .post("http://localhost:4001/login", {
+        ID: userId,
+        PW: userPw,
+      })
+      .then((res) => {
+        //데이터 전송 성공 시 response 받음
+        alert("");
 
-  const handleId = (e) => setInputID(e.target.value);
-  const handlePw = (e) => setInputPW(e.target.value);
+        console.log(res.config.data);
+        console.log("데이터 전송 소성");
+      })
+      .catch(function (err) {
+        //데이터 전송 실패 시 error 받음
+        alert("error는 " + err);
+      });
+  };
+
+  const userId = (e) => {
+    console.log(e.target);
+    console.log(e.target.value);
+    setInputID(e.target.value);
+  };
+
+  const userPw = (e) => {
+    console.log(e.target);
+    console.log(e.target.value);
+    setInputPW(e.target.value);
+  };
 
   return (
     <PageContainer>
@@ -139,14 +172,14 @@ export default function Login() {
         <LoginInputText
           type="text"
           value={inputID}
-          onChange={handleId}
+          onChange={userId}
           placeholder="아이디"
           required
         />
         <LoginInputText
           type="password"
           value={inputPW}
-          onChange={handlePw}
+          onChange={userPw}
           placeholder="비밀번호"
           required
         />
@@ -159,17 +192,21 @@ export default function Login() {
               type="submit"
               style={{ textDecoration: "none", color: "white" }}
             >
-              <Link to="/">로그인</Link>
+              <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+                로그인
+              </Link>
             </LoginButton>
           </LoginButtonContainer>
 
           <SecondaryButtonContainer>
             <SecondaryButton type="button">ID/PW 찾기</SecondaryButton>
-            <SecondaryButton
-              type="button"
-              style={{ textDecoration: "none", color: "white" }}
-            >
-              <Link to="/register">회원가입</Link>
+            <SecondaryButton type="button">
+              <Link
+                to="/register"
+                style={{ textDecoration: "none", color: "white" }}
+              >
+                회원가입
+              </Link>
             </SecondaryButton>
           </SecondaryButtonContainer>
 

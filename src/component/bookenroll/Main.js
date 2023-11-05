@@ -8,14 +8,22 @@ const EnrollBox = styled.div`
 `;
 
 const BookTitle = styled.div`
+  // height: 10vh;
   margin-left: 200px;
   margin-top: 50px;
   margin-bottom: 50px;
   font-size: 30px;
 `;
 
+// const EnrollBox2 = styled.div`
+//   // dispaly: flex;
+//   height: 90vh;
+// `;
+
 const BookImg = styled.div`
   width: 400px;
+  // padding-right: 50px;
+  // border-right: solid 3px black;
 `;
 
 const BookInfo = styled.div`
@@ -40,6 +48,14 @@ const Check = styled.div`
   margin-bottom: -20px;
   display: flex;
   alignitems: center;
+`;
+
+const BookEnrollInput = styled.input`
+  width: 250px;
+  height: 30px;
+  font-size: 16px;
+  background: rgba(138, 138, 138, 0.1);
+  border: none;
 `;
 
 function Bookenroll(props) {
@@ -68,6 +84,7 @@ function Bookenroll(props) {
 
   return (
     <EnrollBox>
+      {/* <EnrollBox2> */}
       <BookImg>
         <BookTitle>도서 등록</BookTitle>
         <div className={styles.Bimg}>
@@ -92,7 +109,11 @@ function Bookenroll(props) {
               style={{ display: "none" }}
               onChange={handleImageUpload}
             />
-            <label className={styles.Btn} htmlFor="imgd">
+            <label
+              className={styles.Btn}
+              htmlFor="imgd"
+              style={{ color: "white" }}
+            >
               이미지 삭제
             </label>
             <input
@@ -108,20 +129,11 @@ function Bookenroll(props) {
         <p style={{ fontSize: "20px" }}>책정보</p>
         <div>
           <p>제목</p>
-          <input
-            type="text"
-            style={{ width: "250px", height: "30px", fontSize: "16px" }}
-          ></input>
+          <BookEnrollInput></BookEnrollInput>
           <p className={styles.p2}>저자</p>
-          <input
-            type="text"
-            style={{ width: "250px", height: "30px", fontSize: "16px" }}
-          ></input>
+          <BookEnrollInput></BookEnrollInput>
           <p className={styles.p2}>출판사</p>
-          <input
-            type="text"
-            style={{ width: "250px", height: "30px", fontSize: "16px" }}
-          ></input>
+          <BookEnrollInput></BookEnrollInput>
         </div>
       </BookInfo>
       <BookQuality>
@@ -174,13 +186,14 @@ function Bookenroll(props) {
       <BookPrice>
         <div className={styles.buy}>
           <p className={styles.buyp}>구매 희망 가격</p>
-          <input className={styles.buybox} type="text"></input>
+          <BookEnrollInput></BookEnrollInput>
         </div>
         <div className={styles.sendbox} style={{ marginTop: "230px" }}>
           <label className={styles.sendbtn}>구매 도서 등록</label>
           <input type="sumbit" style={{ display: "none" }}></input>
         </div>
       </BookPrice>
+      {/* </EnrollBox2> */}
     </EnrollBox>
   );
 }

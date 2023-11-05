@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 
 const SearchBox = styled.div`
   height: 50vh;
-  background: #e3cda9;
+  background: #e2e2e2;
 `;
 
 const SearchTitle = styled.div`
@@ -59,7 +59,6 @@ function Searchs() {
             onChange={onChange}
             style={{ fontSize: "20px" }}
           />
-          {/* <input type="submit" value="도서 조회" className="searchbtn" /> */}
           <Link
             to={`/searchinfo/${searchbook}`}
             style={{ textDecoration: "none" }}

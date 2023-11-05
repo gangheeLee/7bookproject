@@ -23,7 +23,7 @@ import Header from "./component/mainpage/Header";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const MainBox = styled.div`
-  background: #e3cda9;
+  background: #e2e2e2;
   height: 100%;
 `;
 const BodyBox = styled.div`
@@ -34,7 +34,7 @@ const BodyBox = styled.div`
 
 function App() {
   return (
-    <div className="App" style={{ background: "#e3cda9" }}>
+    <div className="App">
       {/* // 메인페이지 */}
       <MainBox>
         <Header />

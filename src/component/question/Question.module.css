@@ -2,7 +2,7 @@
 
 .All {
     /* width: 100%; */
-    height: 80vh;
+    height: 90vh;
     font-family: 'Noto Sans KR';
     font-style: normal;
     font-weight: 100;
@@ -16,11 +16,11 @@
 
 .first {
     border: 1px solid #000000;
-    width: 400px;
-    height: 500px;
+    width: 600px;
+    height: 550px;
     background-color: #ffffff;
     border-collapse: collapse;
-    margin-left: 550px;
+    margin-left: 450px;
 
 }
 
@@ -33,7 +33,7 @@ select {
 .select {
     background-color: #ffffff;
     border: 3px solid #b2adad;
-    width: 230px;
+    width: 400px;
     height: 30px;
     margin-top: 50px;
     margin-left: 10px;
@@ -45,8 +45,8 @@ select {
 }
 
 .input {
-    width: 300px;
-    height: 20px;
+    width: 470px;
+    height: 30px;
     margin-top: 10px;
     margin-left: 56px;
     border: 1px solid #c2bebe;
@@ -57,7 +57,7 @@ input::placeholder {
 }
 
 .cname {
-    width: 300px;
+    width: 470px;
     height: 300px;
     
     margin-top: 10px;
@@ -76,8 +76,8 @@ textarea::placeholder{
     color: #ffffff;
     border-radius: 8px;
     cursor: pointer;
-    margin-left: 815px;
-    margin-top: -50px;
+    margin-left: 880px;
+    margin-top: -100px;
 }
 
 .label {

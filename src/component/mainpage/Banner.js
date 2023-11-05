@@ -8,12 +8,11 @@ import "./slick-theme.css";
 import Searchs from "./Searchs";
 
 const BannerAndSearchBox = styled.div`
+  background: #e2e2e2;
   width: 100%;
 `;
 
 const BannerBox = styled.div`
-  // display: flex;
-  // background: #e3cda9;
   height: 60vh;
   margin: 0 auto;
   padding-top: 20px;

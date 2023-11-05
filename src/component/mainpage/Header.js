@@ -14,7 +14,7 @@ import {
 
 const HeaderContainer = styled.div`
   margin: 0 auto;
-  width: 80%;
+  background: #e3cda9;
 `;
 const HeaderMenuContainer = styled.div`
   display: flex;
@@ -35,6 +35,7 @@ const TitleItem = styled.img`
 const MainMenuContainer = styled.div`
   display: flex;
   flex: 5;
+  margin-right: 600px;
   justify-content: center;
   align-items: center;
   margin-top: 1.5rem;
@@ -62,6 +63,7 @@ const RightMenuContainer = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 1.5rem;
+  margin-right: 50px;
 `;
 const RightMenuItemContainer = styled.div`
   margin: 0 0.5rem;

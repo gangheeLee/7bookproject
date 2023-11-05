@@ -41,6 +41,7 @@ const StyledLabel = styled.label`
 const StyledInput = styled.input`
   font-size: 1rem;
   border: none;
+  background: rgba(138, 138, 138, 0.1);
   width: 500px;
   text-align: center;
   border-bottom: 1px solid ${palette.gray[5]};
@@ -204,7 +205,16 @@ const AuthForm = ({ type }) => {
     <BodyBlick>
       <AuthFormBlock>
         <h3 style={{ textAlign: "center", marginRight: "60px" }}>{text}</h3>
-        <form style={{ marginLeft: "120px" }}>
+        <form
+          style={{
+            borderRadius: "20px",
+            paddingTop: "30px",
+            paddingBottom: "30px",
+            paddingLeft: "120px",
+            border: "1px solid #b5b0b0",
+            background: "white",
+          }}
+        >
           <StyledInput
             autoComplete="username"
             name="username"

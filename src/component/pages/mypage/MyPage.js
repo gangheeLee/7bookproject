@@ -5,7 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const UserInfoBox = styled.div`
-  height: 100vh;
+  height: 110vh;
   display: flex;
 `;
 
@@ -64,19 +64,29 @@ const MypageButton = styled.button`
   color: white;
   background-color: #774836;
   text-align: center;
+  margin-left: 300px;
+  margin-top: 20px;
   border-radius: 10px;
+  cursor: pointer;
 `;
 
 const StyledTableTd = styled.td`
-  border: none;
-
+  border: 1px solid #b5b0b0;
+  background: white;
+  padding: 3px;
+  font-size: 18px;
   &:last-child {
     width: 500px;
   }
 `;
+const StyledTableTr = styled.tr`
+  
+  border:1px solid;
+  }
+`;
 
 const PWmessage = styled.div`
-  font-size: 8px;
+  font-size: 5px;
   color: red;
 `;
 
@@ -141,17 +151,23 @@ export default function MyPage() {
           회원정보 수정
         </p>
         <UserInfo>
-          <table style={{ border: "none" }}>
-            <tr>
-              <StyledTableTd>이름</StyledTableTd>
+          <table>
+            <StyledTableTr>
+              <StyledTableTd style={{ background: "skyblue", width: "130px" }}>
+                이름
+              </StyledTableTd>
               <StyledTableTd>홍길동</StyledTableTd>
-            </tr>
-            <tr>
-              <StyledTableTd>아이디</StyledTableTd>
+            </StyledTableTr>
+            <StyledTableTr>
+              <StyledTableTd style={{ background: "skyblue" }}>
+                아이디
+              </StyledTableTd>
               <StyledTableTd>aaaa1234</StyledTableTd>
-            </tr>
-            <tr>
-              <StyledTableTd>비밀번호</StyledTableTd>
+            </StyledTableTr>
+            <StyledTableTr>
+              <StyledTableTd style={{ background: "skyblue" }}>
+                비밀번호
+              </StyledTableTd>
               <StyledTableTd>
                 <input
                   className="searchbar"
@@ -162,9 +178,11 @@ export default function MyPage() {
                   placeholder="비밀번호(영문, 숫자, 특수문자 포함 8자 ~ 20자)"
                 ></input>
               </StyledTableTd>
-            </tr>
-            <tr>
-              <StyledTableTd>비밀번호 확인</StyledTableTd>
+            </StyledTableTr>
+            <StyledTableTr>
+              <StyledTableTd style={{ background: "skyblue" }}>
+                비밀번호 확인
+              </StyledTableTd>
               <StyledTableTd>
                 <input
                   type="password"
@@ -178,9 +196,11 @@ export default function MyPage() {
                   <PWmessage>비밀번호가 일치하지 않습니다.</PWmessage>
                 )}
               </StyledTableTd>
-            </tr>
-            <tr>
-              <StyledTableTd>이메일</StyledTableTd>
+            </StyledTableTr>
+            <StyledTableTr>
+              <StyledTableTd style={{ background: "skyblue" }}>
+                이메일
+              </StyledTableTd>
               <StyledTableTd>
                 <input
                   type="email"
@@ -189,9 +209,11 @@ export default function MyPage() {
                   style={{ width: "450px" }}
                 ></input>
               </StyledTableTd>
-            </tr>
-            <tr>
-              <StyledTableTd>휴대전화</StyledTableTd>
+            </StyledTableTr>
+            <StyledTableTr>
+              <StyledTableTd style={{ background: "skyblue" }}>
+                휴대전화
+              </StyledTableTd>
               <StyledTableTd>
                 <input
                   type="text"
@@ -200,24 +222,26 @@ export default function MyPage() {
                   style={{ width: "450px" }}
                 ></input>
               </StyledTableTd>
-            </tr>
-            <tr>
-              <StyledTableTd>생년월일</StyledTableTd>
-              <StyledTableTd>1999.01.01</StyledTableTd>
-            </tr>
-            <tr>
-              <StyledTableTd colSpan={"2"}>
-                <MypageButton onClick={notify}>수정</MypageButton>
-                <ToastContainer
-                  position="bottom-center"
-                  limit={999}
-                  closeButton={false}
-                  autoClose={1000}
-                  hideProgressBar
-                />
+            </StyledTableTr>
+            <StyledTableTr>
+              <StyledTableTd style={{ background: "skyblue" }}>
+                생년월일
               </StyledTableTd>
-            </tr>
+              <StyledTableTd>1999.01.01</StyledTableTd>
+            </StyledTableTr>
+            {/* <StyledTableTr>
+              <StyledTableTd colSpan={"2"}> */}
+            {/* </StyledTableTd>
+            </StyledTableTr> */}
           </table>
+          <MypageButton onClick={notify}>수정</MypageButton>
+          <ToastContainer
+            position="bottom-center"
+            limit={999}
+            closeButton={false}
+            autoClose={1000}
+            hideProgressBar
+          />
         </UserInfo>
       </UserInfoTitle>
     </UserInfoBox>
