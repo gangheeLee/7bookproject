@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
+import styled from "styled-components";
+import { Link, useNavigate } from "react-router-dom";
 
 const CardContainer = styled.div`
   width: 30%;
@@ -9,7 +9,7 @@ const CardContainer = styled.div`
 const CardImageContainer = styled.div`
   min-height: 150px;
   max-height: 490px;
-  overflow: hidden;  
+  overflow: hidden;
   background-color: #fff;
   border: 1px solid #000;
   border-bottom: none;
@@ -23,8 +23,8 @@ const CardImage = styled.img`
 
 const CardBody = styled.div`
   background-color: #fff;
-  border: 1px solid #000; 
-  `;
+  border: 1px solid #000;
+`;
 
 const CardBodyTitle = styled.div`
   background-color: inherit;
@@ -49,7 +49,7 @@ const CardFooterButton = styled.button`
   font-size: 1rem;
   border: none;
   border-radius: 0.4rem;
-  
+
   &:hover {
     background-color: #2980b9;
   }
@@ -62,24 +62,30 @@ function BookCard({ book }) {
     <CardContainer>
       <CardImageContainer>
         <CardImage src={book.imageSrc} alt={book.title} />
-      </CardImageContainer> 
+      </CardImageContainer>
       <CardBody>
         <CardBodyTitle>{book.title}</CardBodyTitle>
         <CardBodyAuthor>{book.author}</CardBodyAuthor>
       </CardBody>
       <CardFooter>
         <CardFooterButton
-         onClick={() => {
-          navigate(`/book-request/detail/${book.id}`)
-        }}
-        >        
-          상세조회
+        //  onClick={() => {ㅌ
+        //   navigate(`/book-request/detail/${book.id}`)
+        // }}
+        >
+          {/* 시연용 주소값 하드코딩 */}
+          <Link
+            to="/booksale"
+            style={{ textDecoration: "none", color: "white" }}
+          >
+            상세조회
+          </Link>
         </CardFooterButton>
         <CardFooterButton
-        onClick={() => {
-          navigate(`/book-request/bid/${book.id}`)
-        }}
-         >
+          onClick={() => {
+            navigate(`/book-request/bid/${book.id}`);
+          }}
+        >
           응찰참여
         </CardFooterButton>
       </CardFooter>

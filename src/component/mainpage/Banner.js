@@ -8,7 +8,7 @@ import "./slick-theme.css";
 import Searchs from "./Searchs";
 
 const BannerAndSearchBox = styled.div`
-  background: #e2e2e2;
+  background: white;
   width: 100%;
 `;
 

@@ -93,59 +93,43 @@ const SocialLoginImage = styled.img`
 `;
 
 export default function Login() {
-  // const navigate = useNavigate();
+  // //////////////////////// user테이블 정보 서버에서 가져옴 //////////////////////////
+  // const [userlogin, setUserLogin] = useState(null);
 
-  // const [form, setForm] = useState({
-  //   id: null,
-  //   pw: null,
-  // });
-
-  // const handleId = (e) => {
-  //   setForm({
-  //     ...form,
-  //     id: e.target.value,
-  //   });
-  // };
-
-  // const handlePw = (e) => {
-  //   setForm({
-  //     ...form,
-  //     pw: e.target.value,
-  //   });
-  // };
-
-  //////////////////////// user테이블 정보 서버에서 가져옴 //////////////////////////
-  const [userlogin, setUserLogin] = useState(null);
-
-  useEffect(() => {
-    axios
-      .get("http://localhost:4001/getLogin")
-      .then((res) => {
-        setUserLogin(res.data);
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get("http://localhost:4001/getLogin")
+  //     .then((res) => {
+  //       setUserLogin(res.data);
+  //       console.log(res.data);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, []);
 
   ////////////////////////////////////////////////////////////////////////////////
   const [inputID, setInputID] = useState("");
   const [inputPW, setInputPW] = useState("");
+  const navigate = useNavigate();
 
   const LoginClick = (e) => {
     e.preventDefault();
     axios
       .post("http://localhost:4001/login", {
-        ID: userId,
-        PW: userPw,
+        ID: inputID,
+        PW: inputPW,
       })
       .then((res) => {
         //데이터 전송 성공 시 response 받음
-        alert("");
-
-        console.log(res.config.data);
-        console.log("데이터 전송 소성");
+        console.log("로그인 데이터 전송 소성");
+        console.log(res.data);
+        if (res.data == 1) {
+          alert("로그인 성공");
+          navigate("/");
+        } else {
+          alert("로그인 실패");
+        }
       })
       .catch(function (err) {
         //데이터 전송 실패 시 error 받음
@@ -161,7 +145,7 @@ export default function Login() {
 
   const userPw = (e) => {
     console.log(e.target);
-    console.log(e.target.value);
+    // console.log(e.target.value);
     setInputPW(e.target.value);
   };
 
@@ -192,9 +176,7 @@ export default function Login() {
               type="submit"
               style={{ textDecoration: "none", color: "white" }}
             >
-              <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-                로그인
-              </Link>
+              로그인
             </LoginButton>
           </LoginButtonContainer>
 

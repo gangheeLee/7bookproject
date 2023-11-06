@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 
 const SearchBox = styled.div`
   height: 50vh;
-  background: #e2e2e2;
+  background: white;
 `;
 
 const SearchTitle = styled.div`

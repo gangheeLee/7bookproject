@@ -11,10 +11,11 @@ import {
   faUser,
   faCircleUser,
 } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const HeaderContainer = styled.div`
-  margin: 0 auto;
-  background: #e3cda9;
+  // margin: 0 auto;
+  background: #e2e2e2;
 `;
 const HeaderMenuContainer = styled.div`
   display: flex;
@@ -70,9 +71,9 @@ const RightMenuItemContainer = styled.div`
 `;
 const RightMenuItem = styled.span`
   margin-left: 0.2rem;
-  color: #fff;
+  color: black;
   cursor: pointer;
-  font-size: 0.8rem;
+  font-size: 0.4rem;
 
   &:hover {
     color: #000;
@@ -125,7 +126,9 @@ function Header() {
                 navigate("/booksearch");
               }}
             >
+              {/* <Link to="/booksale"> */}
               구매요청 목록
+              {/* </Link> */}
             </MainMenuItem>
           </MainMenuItemContainer>
           <MainMenuItemContainer>
@@ -159,15 +162,6 @@ function Header() {
               로그인
             </RightMenuItem>
           </RightMenuItemContainer>
-          {/* <RightMenuItemContainer>
-                    <FontAwesomeIcon icon={faRightFromBracket} size="lg" style={{color: "#537479",}} />
-                      <RightMenuItem
-                          onClick={() => {
-                              navigate('/logout');
-                          }}>
-                          로그아웃
-                      </RightMenuItem>
-                  </RightMenuItemContainer> */}
           <RightMenuItemContainer>
             <FontAwesomeIcon
               icon={faCircleUser}
@@ -198,7 +192,6 @@ function Header() {
           </RightMenuItemContainer>
         </RightMenuContainer>
       </HeaderMenuContainer>
-      <hr />
     </HeaderContainer>
   );
 }

@@ -21,9 +21,11 @@ import Complete from "./component/idpwsearch/SearchIdComplete";
 import Succeed from "./component/idpwsearch/SearchPwComlpete";
 import Header from "./component/mainpage/Header";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Booksale from "./component/booksale/Booksale";
+import Bid from "./component/bid/Bid";
 
 const MainBox = styled.div`
-  background: #e2e2e2;
+  background: white;
   height: 100%;
 `;
 const BodyBox = styled.div`
@@ -42,7 +44,7 @@ function App() {
           <Routes>
             <Route path="" element={<Banner />} />
             <Route path="/" element={<Banner />} />
-            <Route path="/booksale" element={<BookSaleList />} />
+            <Route path="/booksalelist" element={<BookSaleList />} />
             <Route path="/orderlist" element={<BookOrderList />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<RegisterForm />} />
@@ -58,7 +60,8 @@ function App() {
             <Route path="/history" element={<History />} />
             <Route path="/idsearch" element={<Complete />} />
             <Route path="/pwsearch" element={<Succeed />} />
-            {/* <Route path="/register" element={<RegisterPage />} /> */}
+            <Route path="/booksale" element={<Booksale />} />
+            <Route path="/bid" element={<Bid />} />
           </Routes>
         </BodyBox>
         <Footer />

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import styles from "../bookenroll/Main.module.css";
 import styled from "styled-components";
+import styles from "../bookenroll/Main.module.css";
+import { Link } from "react-router-dom";
 
-const EnrollBox = styled.div`
+const BidBox = styled.div`
   height: 100vh;
   display: flex;
 `;
@@ -58,7 +59,19 @@ const BookEnrollInput = styled.input`
   border: 1px solid;
 `;
 
-function Bookenroll(props) {
+const Bidbtn = styled.button`
+  background-color: #774836;
+  text-align: center;
+  padding: 5px 7px;
+  font-size: 16px;
+  border-radius: 10px;
+  color: #ffffff;
+  cursor: pointer;
+  margin-top: 150px;
+  margin-right: 250px;
+`;
+
+function Bid(props) {
   // 이미지 업로드
   const [selectedImage, setSelectedImage] = useState("/img/bagic.png");
 
@@ -83,10 +96,9 @@ function Bookenroll(props) {
   };
 
   return (
-    <EnrollBox>
-      {/* <EnrollBox2> */}
+    <BidBox>
       <BookImg>
-        <BookTitle>도서 등록</BookTitle>
+        <BookTitle>역경매 응찰참여</BookTitle>
         <div className={styles.Bimg}>
           {selectedImage && (
             <img
@@ -182,20 +194,33 @@ function Bookenroll(props) {
             </Check>
           </div>
         </div>
+        <Link to="/booksale" style={{ textDecoration: "none", color: "white" }}>
+          <Bidbtn>제출하기</Bidbtn>
+        </Link>
       </BookQuality>
       <BookPrice>
         <div className={styles.buy} style={{ marginTop: "215px" }}>
-          <p className={styles.buyp}>구매 희망 가격</p>
+          <p className={styles.buyp}>판매가</p>
           <BookEnrollInput></BookEnrollInput>
         </div>
-        <div className={styles.sendbox} style={{ marginTop: "230px" }}>
-          <label className={styles.sendbtn}>구매 도서 등록</label>
-          <input type="sumbit" style={{ display: "none" }}></input>
+        <div className={styles.buy}>
+          <p className={styles.buyp}>거래 방법 </p>
+          <BookEnrollInput></BookEnrollInput>
+        </div>
+
+        <div className={styles.sendbox} style={{ marginTop: "150px" }}>
+          <Link
+            to="/booksale"
+            style={{ textDecoration: "none", color: "white" }}
+          >
+            <label className={styles.sendbtn}>뒤로 가기</label>
+            <input type="button" style={{ display: "none" }}></input>
+          </Link>
         </div>
       </BookPrice>
       {/* </EnrollBox2> */}
-    </EnrollBox>
+    </BidBox>
   );
 }
 
-export default Bookenroll;
+export default Bid;

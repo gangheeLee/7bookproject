@@ -133,7 +133,7 @@ export default function MyPage() {
         </SubMenu2>
         <SubMenu3>
           <Link
-            to="/booksale"
+            to="/booksalelist"
             style={{ textDecoration: "none", color: "black" }}
           >
             <div className="move" style={{ width: "120px" }}>
@@ -162,7 +162,7 @@ export default function MyPage() {
               <StyledTableTd style={{ background: "skyblue" }}>
                 아이디
               </StyledTableTd>
-              <StyledTableTd>aaaa1234</StyledTableTd>
+              <StyledTableTd>aaaa</StyledTableTd>
             </StyledTableTr>
             <StyledTableTr>
               <StyledTableTd style={{ background: "skyblue" }}>
