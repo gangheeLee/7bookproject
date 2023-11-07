@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-const IdsearchBox = styled.div`
+const PwsearchBox = styled.div`
   height: 66.5vh;
   margin: 0 auto;
   justify-content: center;
@@ -18,8 +18,8 @@ const Searchs = styled.div`
 const ID = styled.div`
   width: 150px;
   height: 50px;
-  cursor: pointer;
   background: #76b6b1;
+  cursor: pointer;
   text-align: center;
   border-radius: 20px 0px 0;
 `;
@@ -32,7 +32,7 @@ const PW = styled.div`
   border-radius: 0 20px 0 0;
 `;
 
-const IDs = styled.div`
+const PWs = styled.div`
   width: 299px;
   height: 250px;
   border: 1px solid;
@@ -60,37 +60,36 @@ const Button = styled.button`
   cursor: pointer;
   margin-left: 135px;
 `;
-
-function Idsearchs() {
+function Pwsearch() {
   return (
-    <IdsearchBox>
+    <PwsearchBox>
       <Searchs>
         <ID>
-          <p style={{ color: "white" }}>아이디 찾기</p>
-        </ID>
-        <PW>
           <Link
-            to="/pwsearch"
+            to="/idsearchs"
             style={{ textDecoration: "none", color: "black" }}
           >
-            <p>비밀번호 찾기</p>
+            <p>아이디 찾기</p>
           </Link>
+        </ID>
+        <PW>
+          <p style={{ color: "white" }}>비밀번호 찾기</p>
         </PW>
       </Searchs>
-      <IDs>
-        <Lables>이름</Lables>
+      <PWs>
+        <Lables>아이디</Lables>
         <Inputs
           type="text"
-          style={{ marginTop: "60px", marginLeft: "40px" }}
+          style={{ marginTop: "60px", marginLeft: "25px" }}
         ></Inputs>
-        <Lables>생년월일</Lables>
-        <Inputs type="text"></Inputs>
+        <Lables>이름</Lables>
+        <Inputs type="text" style={{ marginLeft: "40px" }}></Inputs>
         <Lables>전화번호</Lables>
         <Inputs type="text"></Inputs>
         <Button>확인</Button>
-      </IDs>
-    </IdsearchBox>
+      </PWs>
+    </PwsearchBox>
   );
 }
 
-export default Idsearchs;
+export default Pwsearch;

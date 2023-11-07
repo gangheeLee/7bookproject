@@ -161,7 +161,7 @@ export default function Login() {
           </LoginButtonContainer>
 
           <SecondaryButtonContainer>
-            <Link to="/idsearch">
+            <Link to="/idsearchs">
               <SecondaryButton type="button">ID/PW 찾기</SecondaryButton>
             </Link>
             <SecondaryButton type="button">
