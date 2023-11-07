@@ -1,4 +1,3 @@
-import Logo from "./component/mainpage/LogoAndMenu";
 import Banner from "./component/mainpage/Banner";
 import { Routes, Route } from "react-router-dom";
 import styled from "styled-components";
@@ -15,15 +14,13 @@ import Qna from "./component/qna/Qna";
 import Que from "./component/question/Question";
 import BookInfo from "./component/bookInfo/BookInfo";
 import History from "./component/history/history";
-import RegisterPage from "./component/pages/register/RegisterPage";
 import Footer from "./component/mainpage/Footer";
 import Complete from "./component/idpwsearch/SearchIdComplete";
 import Succeed from "./component/idpwsearch/SearchPwComlpete";
 import Header from "./component/mainpage/Header";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Booksale from "./component/booksale/Booksale";
 import Bid from "./component/bid/Bid";
-
+import Idsearch from "./component/pages/login/Idsearch";
 const MainBox = styled.div`
   background: white;
   height: 100%;
@@ -58,10 +55,9 @@ function App() {
             <Route path="/booksearch" element={<BookRequestListPage />} />
             <Route path="/mypage" element={<MyPage />} />
             <Route path="/history" element={<History />} />
-            <Route path="/idsearch" element={<Complete />} />
-            <Route path="/pwsearch" element={<Succeed />} />
             <Route path="/booksale" element={<Booksale />} />
             <Route path="/bid" element={<Bid />} />
+            <Route path="/idsearch" element={<Idsearch />} />
           </Routes>
         </BodyBox>
         <Footer />

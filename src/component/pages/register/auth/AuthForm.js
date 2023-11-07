@@ -107,8 +107,6 @@ const AuthForm = ({ type }) => {
     setPassword(newPassword);
     // 비밀번호와 비밀번호 확인 필드 값을 비교하여 상태 업데이트
     setPasswordsMatch(newPassword === passwordConfirm);
-    console.log(e.target);
-    console.log(e.target.value);
     setPassword(e.target.value);
   };
 
@@ -146,32 +144,22 @@ const AuthForm = ({ type }) => {
   ////////////////////////// 회원정보 mysql로 ///////////////////////////////
 
   const onId = (e) => {
-    console.log(e.target);
-    console.log(e.target.value);
     setSID(e.target.value);
   };
 
   const onName = (e) => {
-    console.log(e.target);
-    console.log(e.target.value);
     setSName(e.target.value);
   };
 
   const onBirth = (e) => {
-    console.log(e.target);
-    console.log(e.target.value);
     setSBirth(e.target.value);
   };
 
   const onPhonenumber = (e) => {
-    console.log(e.target);
-    console.log(e.target.value);
     setSPhoneNumber(e.target.value);
   };
 
   const onEmail = (e) => {
-    console.log(e.target);
-    console.log(e.target.value);
     setSEmail(e.target.value);
   };
 

@@ -93,21 +93,6 @@ const SocialLoginImage = styled.img`
 `;
 
 export default function Login() {
-  // //////////////////////// user테이블 정보 서버에서 가져옴 //////////////////////////
-  // const [userlogin, setUserLogin] = useState(null);
-
-  // useEffect(() => {
-  //   axios
-  //     .get("http://localhost:4001/getLogin")
-  //     .then((res) => {
-  //       setUserLogin(res.data);
-  //       console.log(res.data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, []);
-
   ////////////////////////////////////////////////////////////////////////////////
   const [inputID, setInputID] = useState("");
   const [inputPW, setInputPW] = useState("");
@@ -123,7 +108,6 @@ export default function Login() {
       .then((res) => {
         //데이터 전송 성공 시 response 받음
         console.log("로그인 데이터 전송 소성");
-        console.log(res.data);
         if (res.data == 1) {
           alert("로그인 성공");
           navigate("/");
@@ -138,14 +122,10 @@ export default function Login() {
   };
 
   const userId = (e) => {
-    console.log(e.target);
-    console.log(e.target.value);
     setInputID(e.target.value);
   };
 
   const userPw = (e) => {
-    console.log(e.target);
-    // console.log(e.target.value);
     setInputPW(e.target.value);
   };
 
@@ -181,7 +161,9 @@ export default function Login() {
           </LoginButtonContainer>
 
           <SecondaryButtonContainer>
-            <SecondaryButton type="button">ID/PW 찾기</SecondaryButton>
+            <Link to="/idsearch">
+              <SecondaryButton type="button">ID/PW 찾기</SecondaryButton>
+            </Link>
             <SecondaryButton type="button">
               <Link
                 to="/register"

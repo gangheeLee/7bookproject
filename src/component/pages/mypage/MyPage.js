@@ -218,7 +218,7 @@ export default function MyPage() {
                 <input
                   type="text"
                   className="searchbar"
-                  placeholder="000-0000-0000"
+                  placeholder="010-0000-0000"
                   style={{ width: "450px" }}
                 ></input>
               </StyledTableTd>
