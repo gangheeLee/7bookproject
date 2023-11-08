@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,7 +11,8 @@ import {
   faUser,
   faCircleUser,
 } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { useCookies } from "react-cookie";
+import { Hidden } from "@material-ui/core";
 
 const HeaderContainer = styled.div`
   // margin: 0 auto;
@@ -84,6 +85,110 @@ const RightMenuItem = styled.span`
 
 function Header() {
   const navigate = useNavigate();
+  const userID = localStorage.getItem("userID");
+  const token = localStorage.getItem("token");
+  console.log(token);
+  console.log(userID);
+  const Log = () => {
+    if (token == 1) {
+      return (
+        <RightMenuItem htMenuItem onClick={Logout}>
+          로그아웃
+        </RightMenuItem>
+      );
+    } else {
+      return (
+        <RightMenuItem
+          onClick={() => {
+            navigate("/login");
+          }}
+        >
+          로그인
+        </RightMenuItem>
+      );
+    }
+  };
+  const Mypageinfo = () => {
+    if (token == 1) {
+      return (
+        <RightMenuItemContainer>
+          <FontAwesomeIcon
+            icon={faUser}
+            size="lg"
+            style={{ color: "#537479" }}
+          />
+          <RightMenuItem
+            onClick={() => {
+              navigate("/mypage");
+            }}
+          >
+            마이페이지
+          </RightMenuItem>
+        </RightMenuItemContainer>
+      );
+    } else {
+      return (
+        <RightMenuItemContainer style={{ display: "none" }}>
+          <FontAwesomeIcon
+            icon={faUser}
+            size="lg"
+            style={{ color: "#537479" }}
+          />
+          <RightMenuItem
+            onClick={() => {
+              navigate("/mypage");
+            }}
+          >
+            마이페이지
+          </RightMenuItem>
+        </RightMenuItemContainer>
+      );
+    }
+  };
+
+  const Register = () => {
+    if (token == 1) {
+      return (
+        <RightMenuItemContainer style={{ display: "none" }}>
+          <FontAwesomeIcon
+            icon={faCircleUser}
+            size="lg"
+            style={{ color: "#537479" }}
+          />
+          <RightMenuItem
+            onClick={() => {
+              navigate("/register");
+            }}
+          >
+            회원가입
+          </RightMenuItem>
+        </RightMenuItemContainer>
+      );
+    } else {
+      return (
+        <RightMenuItemContainer>
+          <FontAwesomeIcon
+            icon={faCircleUser}
+            size="lg"
+            style={{ color: "#537479" }}
+          />
+          <RightMenuItem
+            onClick={() => {
+              navigate("/register");
+            }}
+          >
+            회원가입
+          </RightMenuItem>
+        </RightMenuItemContainer>
+      );
+    }
+  };
+
+  const Logout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("userID");
+    navigate("/");
+  };
 
   return (
     <HeaderContainer>
@@ -154,42 +259,10 @@ function Header() {
               size="lg"
               style={{ color: "#537479" }}
             />
-            <RightMenuItem
-              onClick={() => {
-                navigate("/login");
-              }}
-            >
-              로그인
-            </RightMenuItem>
+            <Log /> {/* 로그인/로그아웃 */}
           </RightMenuItemContainer>
-          <RightMenuItemContainer>
-            <FontAwesomeIcon
-              icon={faCircleUser}
-              size="lg"
-              style={{ color: "#537479" }}
-            />
-            <RightMenuItem
-              onClick={() => {
-                navigate("/register");
-              }}
-            >
-              회원가입
-            </RightMenuItem>
-          </RightMenuItemContainer>
-          <RightMenuItemContainer>
-            <FontAwesomeIcon
-              icon={faUser}
-              size="lg"
-              style={{ color: "#537479" }}
-            />
-            <RightMenuItem
-              onClick={() => {
-                navigate("/mypage");
-              }}
-            >
-              마이페이지
-            </RightMenuItem>
-          </RightMenuItemContainer>
+          <Register />
+          <Mypageinfo />
         </RightMenuContainer>
       </HeaderMenuContainer>
     </HeaderContainer>

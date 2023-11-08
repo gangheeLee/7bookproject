@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { Cookies } from "react-cookie";
 
 const PageContainer = styled.div`
   margin: 0 auto;
@@ -44,6 +45,7 @@ const LoginButton = styled.button`
   background-color: #69433a;
   border: none;
   text-decoration: none;
+  cursor: pointer;
 
   border-radius: 10px;
   color: #ffffff;
@@ -70,6 +72,7 @@ const SecondaryButton = styled.button`
   text-align: center;
   width: 150px;
   height: 35px;
+  cursor: pointer;
 
   &:first-child {
     margin-right: 0.2rem;
@@ -109,10 +112,18 @@ export default function Login() {
         //데이터 전송 성공 시 response 받음
         console.log("로그인 데이터 전송 소성");
         if (res.data == 1) {
-          alert("로그인 성공");
-          navigate("/");
+          // alert("로그인 성공");
+          localStorage.setItem("token", res.data);
+          localStorage.setItem("userID", inputID);
+          const TOKEN = localStorage.getItem("token");
+          const ID = localStorage.getItem("userID");
+
+          navigate("/", { state: { log: res.data } });
+          window.alert(`${inputID}님 환영합니다.`);
         } else {
           alert("로그인 실패");
+          localStorage.setItem("token", res.data);
+          localStorage.setItem("userID", "");
         }
       })
       .catch(function (err) {

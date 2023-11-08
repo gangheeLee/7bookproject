@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 
 const UserInfoBox = styled.div`
   height: 110vh;
@@ -94,6 +95,7 @@ export default function MyPage() {
   const notify = () => {
     toast("회원정보가 수정되었습니다.");
   };
+  const userID = localStorage.getItem("userID");
 
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -112,6 +114,21 @@ export default function MyPage() {
     // 비밀번호와 비밀번호 확인 필드 값을 비교하여 상태 업데이트
     setPasswordsMatch(password === newConfirmPassword);
   };
+
+  //////////////////////////////////////// id에 맞는 정보 서버에서 가져오기///////////////////////
+  const [mypage, setMypage] = useState(null);
+
+  useEffect(() => {
+    axios
+      .post("http://localhost:4001/mypage", { ID: userID })
+      .then((res) => {
+        setMypage(res.data);
+        console.log(res.data.userID);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   return (
     <UserInfoBox>
@@ -162,7 +179,7 @@ export default function MyPage() {
               <StyledTableTd style={{ background: "skyblue" }}>
                 아이디
               </StyledTableTd>
-              <StyledTableTd>aaaa</StyledTableTd>
+              <StyledTableTd>{userID}</StyledTableTd>
             </StyledTableTr>
             <StyledTableTr>
               <StyledTableTd style={{ background: "skyblue" }}>
