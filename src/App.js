@@ -21,6 +21,7 @@ import Booksale from "./component/booksale/Booksale";
 import Bid from "./component/bid/Bid";
 import Idsearchs from "./component/pages/login/Idsearch";
 import Pwsearch from "./component/pages/login/Pwsearch";
+import BookBidForm from "./component/bookbid/BookBidForm";
 
 const MainBox = styled.div`
   background: white;
@@ -60,6 +61,7 @@ function App() {
             <Route path="/bid" element={<Bid />} />
             <Route path="/idsearchs" element={<Idsearchs />} />
             <Route path="/pwsearch" element={<Pwsearch />} />
+            <Route path="/bookbid" element={<BookBidForm />} />
           </Routes>
         </BodyBox>
         <Footer />

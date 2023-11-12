@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const FooterBox = styled.div`
-  background: #f7f7f7;
+  background: #d5dee8;
 `;
 
 const FooterContainer = styled.div`

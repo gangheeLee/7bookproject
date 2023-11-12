@@ -173,6 +173,7 @@ function Header() {
   const Logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("userID");
+    alert("로그아웃");
     navigate("/");
   };
 
@@ -184,8 +185,6 @@ function Header() {
       .post("http://localhost:4001/mypage", { ID: userID })
       .then((res) => {
         if (token == 1) {
-          console.log(res.data[0].Name);
-          console.log(res.data[0].Birth);
           localStorage.setItem("username", res.data[0].Name);
           localStorage.setItem("userbirth", res.data[0].Birth);
           const Name = localStorage.getItem("username");
