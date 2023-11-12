@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
@@ -92,18 +92,19 @@ const PWmessage = styled.div`
 `;
 
 export default function MyPage() {
-  const notify = () => {
-    toast("회원정보가 수정되었습니다.");
-  };
   const userID = localStorage.getItem("userID");
-
+  const username = localStorage.getItem("username");
+  const userbirth = localStorage.getItem("userbirth");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordsMatch, setPasswordsMatch] = useState(true);
+  const [chgemail, setChgemail] = useState("");
+  const [chgphone, setChgphone] = useState("");
 
   const handlePasswordChange = (e) => {
     const newPassword = e.target.value;
     setPassword(newPassword);
+    // setPassword(e.target.password);
     // 비밀번호와 비밀번호 확인 필드 값을 비교하여 상태 업데이트
     setPasswordsMatch(newPassword === confirmPassword);
   };
@@ -115,20 +116,25 @@ export default function MyPage() {
     setPasswordsMatch(password === newConfirmPassword);
   };
 
-  //////////////////////////////////////// id에 맞는 정보 서버에서 가져오기///////////////////////
-  const [mypage, setMypage] = useState(null);
+  const changeEmail = (e) => {
+    const newEmail = e.target.value;
+    setChgemail(newEmail);
+  };
+  const changePhone = (e) => {
+    const newPhone = e.target.value;
+    setChgphone(newPhone);
+  };
 
-  useEffect(() => {
-    axios
-      .post("http://localhost:4001/mypage", { ID: userID })
-      .then((res) => {
-        setMypage(res.data);
-        console.log(res.data.userID);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+  const notify = (e) => {
+    toast("회원정보가 수정되었습니다.");
+    e.preventDefault();
+    axios.post("http://localhost:4001/mypagechange", {
+      ID: userID,
+      PW: password,
+      PhoneNumber: chgphone,
+      Email: chgemail,
+    });
+  };
 
   return (
     <UserInfoBox>
@@ -173,7 +179,7 @@ export default function MyPage() {
               <StyledTableTd style={{ background: "skyblue", width: "130px" }}>
                 이름
               </StyledTableTd>
-              <StyledTableTd>홍길동</StyledTableTd>
+              <StyledTableTd>{username}</StyledTableTd>
             </StyledTableTr>
             <StyledTableTr>
               <StyledTableTd style={{ background: "skyblue" }}>
@@ -221,6 +227,8 @@ export default function MyPage() {
               <StyledTableTd>
                 <input
                   type="email"
+                  value={chgemail}
+                  onChange={changeEmail}
                   className="searchbar"
                   placeholder="aaaa@naver.com"
                   style={{ width: "450px" }}
@@ -234,6 +242,8 @@ export default function MyPage() {
               <StyledTableTd>
                 <input
                   type="text"
+                  value={chgphone}
+                  onChange={changePhone}
                   className="searchbar"
                   placeholder="010-0000-0000"
                   style={{ width: "450px" }}
@@ -244,7 +254,7 @@ export default function MyPage() {
               <StyledTableTd style={{ background: "skyblue" }}>
                 생년월일
               </StyledTableTd>
-              <StyledTableTd>1999.01.01</StyledTableTd>
+              <StyledTableTd>{userbirth}</StyledTableTd>
             </StyledTableTr>
             {/* <StyledTableTr>
               <StyledTableTd colSpan={"2"}> */}

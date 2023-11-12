@@ -122,8 +122,8 @@ export default function Login() {
           window.alert(`${inputID}님 환영합니다.`);
         } else {
           alert("로그인 실패");
-          localStorage.setItem("token", res.data);
-          localStorage.setItem("userID", "");
+          localStorage.removeItem("token");
+          localStorage.removeItem("userID");
         }
       })
       .catch(function (err) {

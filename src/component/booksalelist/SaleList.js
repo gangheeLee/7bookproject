@@ -69,10 +69,11 @@ const SaleTable = styled.div`
 
 function BookSaleList() {
   const [salelist, setSalelist] = useState(null);
+  const userID = localStorage.getItem("userID");
 
   useEffect(() => {
     axios
-      .get("http://localhost:4001/getSaleList")
+      .get("http://localhost:4001/getSaleList", { params: { SLBuyer: userID } })
       .then((res) => {
         setSalelist(res.data);
         console.log(res.data);

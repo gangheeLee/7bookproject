@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import palette from "../lib/styles/palette";
 import Button from "../common/Button";
 import "open-color";
@@ -101,6 +101,7 @@ const AuthForm = ({ type }) => {
   const [sEmail, setSEmail] = useState(null);
   const [isAllChecked, setAllChecked] = useState(false);
   const [checkedState, setCheckedState] = useState(new Array(4).fill(false));
+  const navigate = useNavigate();
 
   const handlePasswordChange = (e) => {
     const newPassword = e.target.value;
@@ -177,7 +178,7 @@ const AuthForm = ({ type }) => {
       .then((res) => {
         //데이터 전송 성공 시 response 받음
         alert("회원가입 성공");
-
+        navigate("/");
         console.log(res.config.data);
         console.log("데이터 전송 소성");
       })

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,8 +11,7 @@ import {
   faUser,
   faCircleUser,
 } from "@fortawesome/free-solid-svg-icons";
-import { useCookies } from "react-cookie";
-import { Hidden } from "@material-ui/core";
+import axios from "axios";
 
 const HeaderContainer = styled.div`
   // margin: 0 auto;
@@ -87,8 +86,7 @@ function Header() {
   const navigate = useNavigate();
   const userID = localStorage.getItem("userID");
   const token = localStorage.getItem("token");
-  console.log(token);
-  console.log(userID);
+
   const Log = () => {
     if (token == 1) {
       return (
@@ -117,13 +115,7 @@ function Header() {
             size="lg"
             style={{ color: "#537479" }}
           />
-          <RightMenuItem
-            onClick={() => {
-              navigate("/mypage");
-            }}
-          >
-            마이페이지
-          </RightMenuItem>
+          <RightMenuItem onClick={MypageClick}>마이페이지</RightMenuItem>
         </RightMenuItemContainer>
       );
     } else {
@@ -134,13 +126,7 @@ function Header() {
             size="lg"
             style={{ color: "#537479" }}
           />
-          <RightMenuItem
-            onClick={() => {
-              navigate("/mypage");
-            }}
-          >
-            마이페이지
-          </RightMenuItem>
+          <RightMenuItem>마이페이지</RightMenuItem>
         </RightMenuItemContainer>
       );
     }
@@ -188,6 +174,32 @@ function Header() {
     localStorage.removeItem("token");
     localStorage.removeItem("userID");
     navigate("/");
+  };
+
+  //////// 마이페이지를 클릭시 ID값을 주고 이름과 생년월일 받아온다. ////////
+
+  const MypageClick = (e) => {
+    e.preventDefault();
+    axios
+      .post("http://localhost:4001/mypage", { ID: userID })
+      .then((res) => {
+        if (token == 1) {
+          console.log(res.data[0].Name);
+          console.log(res.data[0].Birth);
+          localStorage.setItem("username", res.data[0].Name);
+          localStorage.setItem("userbirth", res.data[0].Birth);
+          const Name = localStorage.getItem("username");
+          const Birth = localStorage.getItem("userbirth");
+          navigate("/mypage");
+        } else {
+          localStorage.removeItem("username");
+          localStorage.setItem("userbirth");
+        }
+      })
+      .catch((err) => {
+        alert("error는 " + err);
+        console.log(err);
+      });
   };
 
   return (
@@ -261,8 +273,8 @@ function Header() {
             />
             <Log /> {/* 로그인/로그아웃 */}
           </RightMenuItemContainer>
-          <Register />
-          <Mypageinfo />
+          <Register /> {/* 회원가입 */}
+          <Mypageinfo /> {/* 마이페이지 */}
         </RightMenuContainer>
       </HeaderMenuContainer>
     </HeaderContainer>

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styles from "../bookenroll/Main.module.css";
 import styled from "styled-components";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 
 const EnrollBox = styled.div`
   height: 100vh;
@@ -61,7 +63,7 @@ const BookEnrollInput = styled.input`
 function Bookenroll(props) {
   // 이미지 업로드
   const [selectedImage, setSelectedImage] = useState("/img/bagic.png");
-
+  const userID = localStorage.getItem("userID");
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -81,10 +83,48 @@ function Bookenroll(props) {
   const handleShowImage = () => {
     setShowImage(true);
   };
+  ////////////////////// 버튼 클릭시 구매등록도서 데이터베이스에 저장 /////////////////////
+  const [title, setTitle] = useState("");
+  const [author, setAuthor] = useState("");
+  const [publisher, setPublisher] = useState("");
+  const [desiredPrice, setDesiredPrice] = useState("");
+
+  const PurEnroll = (e) => {
+    e.preventDefault();
+    console.log(userID);
+    axios
+      .post("http://localhost:4001/bookenroll", {
+        PID: userID,
+        PBookTitle: title,
+        PAuthor: author,
+        PPublisher: publisher,
+        DesiredPrice: desiredPrice,
+        //퀄리티
+        //이미지 주소
+      })
+      .then((res) => {
+        console.log("data전송");
+      })
+      .catch(function (err) {
+        alert("error는 " + err);
+      });
+  };
+
+  const Title = (e) => {
+    setTitle(e.target.value);
+  };
+  const Author = (e) => {
+    setAuthor(e.target.value);
+  };
+  const Publisher = (e) => {
+    setPublisher(e.target.value);
+  };
+  const DesiredPrice = (e) => {
+    setDesiredPrice(e.target.value);
+  };
 
   return (
     <EnrollBox>
-      {/* <EnrollBox2> */}
       <BookImg>
         <BookTitle>도서 등록</BookTitle>
         <div className={styles.Bimg}>
@@ -129,11 +169,14 @@ function Bookenroll(props) {
         <p style={{ fontSize: "20px" }}>책정보</p>
         <div>
           <p>제목</p>
-          <BookEnrollInput></BookEnrollInput>
+          <BookEnrollInput value={title} onChange={Title}></BookEnrollInput>
           <p className={styles.p2}>저자</p>
-          <BookEnrollInput></BookEnrollInput>
+          <BookEnrollInput value={author} onChange={Author}></BookEnrollInput>
           <p className={styles.p2}>출판사</p>
-          <BookEnrollInput></BookEnrollInput>
+          <BookEnrollInput
+            value={publisher}
+            onChange={Publisher}
+          ></BookEnrollInput>
         </div>
       </BookInfo>
       <BookQuality>
@@ -186,14 +229,18 @@ function Bookenroll(props) {
       <BookPrice>
         <div className={styles.buy} style={{ marginTop: "215px" }}>
           <p className={styles.buyp}>구매 희망 가격</p>
-          <BookEnrollInput></BookEnrollInput>
+          <BookEnrollInput
+            value={desiredPrice}
+            onChange={DesiredPrice}
+          ></BookEnrollInput>
         </div>
         <div className={styles.sendbox} style={{ marginTop: "230px" }}>
-          <label className={styles.sendbtn}>구매 도서 등록</label>
-          <input type="sumbit" style={{ display: "none" }}></input>
+          <label onClick={PurEnroll} className={styles.sendbtn}>
+            구매 도서 등록
+          </label>
+          <button type="sumbit" style={{ display: "none" }}></button>
         </div>
       </BookPrice>
-      {/* </EnrollBox2> */}
     </EnrollBox>
   );
 }

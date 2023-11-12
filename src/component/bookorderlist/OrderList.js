@@ -69,10 +69,13 @@ const OrderTable = styled.div`
 
 function BookOrderList() {
   const [orlist, setOrlist] = useState(null);
+  const userID = localStorage.getItem("userID");
 
   useEffect(() => {
     axios
-      .get("http://localhost:4001/getOrderList")
+      .get("http://localhost:4001/getOrderList", {
+        params: { OBuyer: userID },
+      })
       .then((res) => {
         setOrlist(res.data);
         console.log(res.data);
@@ -138,7 +141,7 @@ function BookOrderList() {
                 orlist.map((item) => (
                   <tr key={item.id}>
                     <td className="tablecontent">{item.OrderDate}</td>
-                    <td className="tablecontent">{item.Seller}</td>
+                    <td className="tablecontent">{item.OSeller}</td>
                     <td className="tablecontent">{item.OBookTitle}</td>
                     <td className="tablecontent">{item.OTransactionStatus}</td>
                     <td className="tablecontent">{item.ReviewPoint}</td>
