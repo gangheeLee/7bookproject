@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 const CardContainer = styled.div`
   width: 30%;
@@ -57,38 +59,57 @@ const CardFooterButton = styled.button`
 
 function BookCard({ book }) {
   const navigate = useNavigate();
+  const userID = localStorage.getItem("userID");
+  const [getbook, setGetbook] = useState("");
+  useEffect(() => {
+    axios
+      .get("http://localhost:4001/getBook", { params: { PID: userID } })
+      .then((res) => {
+        console.log(res.data);
+        setGetbook(res.data);
+        console.log(res.data[0]["PBookTitle"]);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
 
   return (
-    <CardContainer>
-      <CardImageContainer>
-        <CardImage src={book.imageSrc} alt={book.title} />
-      </CardImageContainer>
-      <CardBody>
-        <CardBodyTitle>{book.title}</CardBodyTitle>
-        <CardBodyAuthor>{book.author}</CardBodyAuthor>
-      </CardBody>
-      <CardFooter>
-        <CardFooterButton
-        //  onClick={() => {ㅌ
-        //   navigate(`/book-request/detail/${book.id}`)
-        // }}
-        >
-          {/* 시연용 주소값 하드코딩 */}
-          <Link
-            to="/booksale"
-            style={{ textDecoration: "none", color: "white" }}
-          >
-            상세조회
-          </Link>
-        </CardFooterButton>
-        <CardFooterButton
-          onClick={() => {
-            navigate(`/book-request/bid/${book.id}`);
-          }}
-        >
-          응찰참여
-        </CardFooterButton>
-      </CardFooter>
+    <CardContainer style={{ alignItems: "center" }}>
+      {getbook &&
+        getbook.map((item) => (
+          <div key={item}>
+            <CardImageContainer>
+              <CardImage src={item.PImage} alt={item.PBookTitle} />
+            </CardImageContainer>
+            <CardBody>
+              <CardBodyTitle>{item.PBookTitle}</CardBodyTitle>
+              <CardBodyAuthor>{item.PAuthor}</CardBodyAuthor>
+            </CardBody>
+            <CardFooter>
+              <CardFooterButton
+              //  onClick={() => {ㅌ
+              //   navigate(`/book-request/detail/${book.id}`)
+              // }}
+              >
+                {/* 시연용 주소값 하드코딩 */}
+                <Link
+                  to="/booksale"
+                  style={{ textDecoration: "none", color: "white" }}
+                >
+                  상세조회
+                </Link>
+              </CardFooterButton>
+              <CardFooterButton
+                onClick={() => {
+                  navigate(`/book-request/bid/${item.userID}`);
+                }}
+              >
+                응찰참여
+              </CardFooterButton>
+            </CardFooter>
+          </div>
+        ))}
     </CardContainer>
   );
 }

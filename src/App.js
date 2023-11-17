@@ -15,13 +15,15 @@ import Que from "./component/question/Question";
 import BookInfo from "./component/bookInfo/BookInfo";
 import History from "./component/history/history";
 import Footer from "./component/mainpage/Footer";
-
 import Header from "./component/mainpage/Header";
 import Booksale from "./component/booksale/Booksale";
 import Bid from "./component/bid/Bid";
 import Idsearchs from "./component/pages/login/Idsearch";
 import Pwsearch from "./component/pages/login/Pwsearch";
 import BookBidForm from "./component/bookbid/BookBidForm";
+import QuestoionCorrection from "./component/qna/QuestionCorrection";
+import Idfind from "./component/pages/login/Idfind";
+import PWfind from "./component/pages/login/Pwfind";
 
 const MainBox = styled.div`
   background: white;
@@ -62,6 +64,12 @@ function App() {
             <Route path="/idsearchs" element={<Idsearchs />} />
             <Route path="/pwsearch" element={<Pwsearch />} />
             <Route path="/bookbid" element={<BookBidForm />} />
+            <Route
+              path="/questioncorrection"
+              element={<QuestoionCorrection />}
+            />
+            <Route path="/idfind" element={<Idfind />} />
+            <Route path="/pwfind" element={<PWfind />} />
           </Routes>
         </BodyBox>
         <Footer />

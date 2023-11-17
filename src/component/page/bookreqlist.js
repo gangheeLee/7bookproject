@@ -12,10 +12,10 @@ const OrderByContainer = styled.div`
   text-align: right;
   display: flex;
   justify-content: flex-end;
-`
+`;
 const OrderByButton = styled.div`
   margin: 0 0.5rem;
-`
+`;
 
 function BookRequestListPage() {
   const [AscOrderByValue, setAscOrderbyValue] = useState("title");
@@ -24,11 +24,14 @@ function BookRequestListPage() {
 
   useEffect(() => {
     const filteredSeachResults = booklist.filter(({ title, author }) => {
-      const replacedSearchText = searchText.replace(' ', '')
-      return title.replaceAll(' ', '').includes(replacedSearchText) || author.replaceAll(' ', '').includes(replacedSearchText)
+      const replacedSearchText = searchText.replace(" ", "");
+      return (
+        title.replaceAll(" ", "").includes(replacedSearchText) ||
+        author.replaceAll(" ", "").includes(replacedSearchText)
+      );
     });
     setSearchResults(filteredSeachResults);
-  }, [searchText]);  
+  }, [searchText]);
 
   const handleSearch = (searchTerm) => {
     // 여기에서 실제 검색 작업을 수행하고 검색 결과를 setSearchResults로 업데이트합니다.
@@ -45,42 +48,39 @@ function BookRequestListPage() {
       <OrderByContainer>
         {/* 버튼 클릭하면 책제목/저자 가다다순으로 정렬 */}
         <OrderByButton
-          onClick={() => { setAscOrderbyValue('title'); }}
-          style={{            
-            cursor: 'pointer',
-            fontWeight: AscOrderByValue === 'title' ? '700' : '400'
+          onClick={() => {
+            setAscOrderbyValue("title");
+          }}
+          style={{
+            cursor: "pointer",
+            fontWeight: AscOrderByValue === "title" ? "700" : "400",
           }}
         >
           책제목 (가나다순)
         </OrderByButton>
-          |
+        |
         <OrderByButton
-          onClick={() => { setAscOrderbyValue('author'); }}
+          onClick={() => {
+            setAscOrderbyValue("author");
+          }}
           style={{
-            cursor: 'pointer',
-            fontWeight: AscOrderByValue === 'author' ? '700' : '400'
+            cursor: "pointer",
+            fontWeight: AscOrderByValue === "author" ? "700" : "400",
           }}
         >
           저자 (가나다순)
         </OrderByButton>
-
       </OrderByContainer>
-      <BookCardContainer>       
-         {searchResults
+      <BookCardContainer>
+        {searchResults
           .sort((a, b) => {
             const aValue = a[AscOrderByValue];
             const bValue = b[AscOrderByValue];
-            return aValue > bValue ? 1 : (aValue < bValue ? -1 : 0)
+            return aValue > bValue ? 1 : aValue < bValue ? -1 : 0;
           })
           .map((searchResult) => {
-            return (
-              <BookCard
-                key={searchResult.id}
-                book={searchResult}
-              />
-            );
-          })
-        }
+            return <BookCard key={searchResult.id} book={searchResult} />;
+          })}
       </BookCardContainer>
     </PageContainer>
   );

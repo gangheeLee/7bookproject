@@ -88,6 +88,11 @@ function Bookenroll(props) {
   const [author, setAuthor] = useState("");
   const [publisher, setPublisher] = useState("");
   const [desiredPrice, setDesiredPrice] = useState("");
+  const [checkbox1, setCheckbox1] = useState(false);
+  const [checkbox2, setCheckbox2] = useState(false);
+  const [checkbox3, setCheckbox3] = useState(false);
+  const [checkbox4, setCheckbox4] = useState(false);
+  const [quality, setQuality] = useState("");
 
   const PurEnroll = (e) => {
     e.preventDefault();
@@ -99,8 +104,7 @@ function Bookenroll(props) {
         PAuthor: author,
         PPublisher: publisher,
         DesiredPrice: desiredPrice,
-        //퀄리티
-        //이미지 주소
+        PQuality: quality,
       })
       .then((res) => {
         console.log("data전송");
@@ -123,6 +127,35 @@ function Bookenroll(props) {
     setDesiredPrice(e.target.value);
   };
 
+  const handleCheckbox1Change = () => {
+    setCheckbox1(true);
+    setCheckbox2(false);
+    setCheckbox3(false);
+    setCheckbox4(false);
+    setQuality("최상");
+  };
+  const handleCheckbox2Change = () => {
+    setCheckbox1(false);
+    setCheckbox2(true);
+    setCheckbox3(false);
+    setCheckbox4(false);
+    setQuality("상");
+  };
+  const handleCheckbox3Change = () => {
+    setCheckbox1(false);
+    setCheckbox2(false);
+    setCheckbox3(true);
+    setCheckbox4(false);
+    setQuality("중");
+  };
+  const handleCheckbox4Change = () => {
+    setCheckbox1(false);
+    setCheckbox2(false);
+    setCheckbox3(false);
+    setCheckbox4(true);
+    setQuality("하");
+  };
+
   return (
     <EnrollBox>
       <BookImg>
@@ -141,27 +174,27 @@ function Bookenroll(props) {
           >
             <label className={styles.file_button} htmlFor="imageUploadButton">
               파일 업로드
+              <input
+                type="file"
+                id="imageUploadButton"
+                accept="image/*"
+                style={{ display: "none" }}
+                onChange={handleImageUpload}
+              />
             </label>
-            <input
-              type="file"
-              id="imageUploadButton"
-              accept="image/*"
-              style={{ display: "none" }}
-              onChange={handleImageUpload}
-            />
             <label
               className={styles.Btn}
               htmlFor="imgd"
               style={{ color: "white" }}
             >
               이미지 삭제
+              <input
+                type="button"
+                id="imgd"
+                style={{ display: "none", marginLeft: "-20px" }}
+                onClick={handleShowImage}
+              />
             </label>
-            <input
-              type="button"
-              id="imgd"
-              style={{ display: "none", marginLeft: "-20px" }}
-              onClick={handleShowImage}
-            />
           </div>
         </div>
       </BookImg>
@@ -184,44 +217,79 @@ function Bookenroll(props) {
           <p style={{ fontSize: "16px" }}>상품 상태</p>
           <div>
             <Check>
-              <input className="check1" type="checkbox" id="check1" />
-              <label for="check1"></label>
-              <input
-                className={styles.box1}
-                type="text"
-                value={"최상"}
-                readOnly="readonly"
-              ></input>
+              <label for="check1">
+                <input
+                  className="check1"
+                  checked={checkbox1}
+                  onChange={handleCheckbox1Change}
+                  type="checkbox"
+                  id="check1"
+                />
+                <input
+                  className={styles.box1}
+                  type="text"
+                  checked={checkbox1}
+                  onChange={handleCheckbox1Change}
+                  value={"최상"}
+                  readOnly="readonly"
+                />
+              </label>
             </Check>
             <Check>
-              <input type="checkbox" className="check1" id="check2" />
-              <label for="check2"></label>
-              <input
-                className={styles.box1}
-                type="text"
-                value={"상"}
-                readOnly="readonly"
-              ></input>
+              <label for="check2">
+                <input
+                  type="checkbox"
+                  checked={checkbox2}
+                  onChange={handleCheckbox2Change}
+                  className="check1"
+                  id="check2"
+                />
+                <input
+                  className={styles.box1}
+                  type="text"
+                  value={"상"}
+                  readOnly="readonly"
+                ></input>
+              </label>
             </Check>
             <Check>
-              <input type="checkbox" className="check1" id="check3" />
-              <label for="check3"></label>
-              <input
-                className={styles.box1}
-                type="text"
-                value={"중"}
-                readOnly="readonly"
-              ></input>
+              <label for="check3">
+                <input
+                  type="checkbox"
+                  checked={checkbox3}
+                  onChange={handleCheckbox3Change}
+                  className="check1"
+                  id="check3"
+                />
+                <input
+                  className={styles.box1}
+                  type="text"
+                  value={"중"}
+                  readOnly="readonly"
+                />
+              </label>
             </Check>
             <Check>
-              <input type="checkbox" className="check1" id="check4" />
-              <label for="check4"></label>
-              <input
+              <label
                 className={styles.box1}
                 type="text"
                 value={"하"}
                 readOnly="readonly"
-              ></input>
+              >
+                <input
+                  type="checkbox"
+                  checked={checkbox4}
+                  onChange={handleCheckbox4Change}
+                  className="check1"
+                  id="check4"
+                />
+                <input
+                  className={styles.box1}
+                  type="text"
+                  value={"하"}
+                  readOnly="readonly"
+                />
+              </label>
             </Check>
           </div>
         </div>
@@ -236,7 +304,9 @@ function Bookenroll(props) {
         </div>
         <div className={styles.sendbox} style={{ marginTop: "230px" }}>
           <label onClick={PurEnroll} className={styles.sendbtn}>
-            구매 도서 등록
+            <Link to="/" style={{ color: "white", textDecoration: "none" }}>
+              구매 도서 등록
+            </Link>
           </label>
           <button type="sumbit" style={{ display: "none" }}></button>
         </div>

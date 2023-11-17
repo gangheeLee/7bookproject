@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -86,6 +86,7 @@ function Header() {
   const navigate = useNavigate();
   const userID = localStorage.getItem("userID");
   const token = localStorage.getItem("token");
+  const posts = localStorage.getItem("writer");
 
   const Log = () => {
     if (token == 1) {
@@ -201,6 +202,26 @@ function Header() {
       });
   };
 
+  ////////////// Q&A 클릭시데이터 받아서 화면에 뿌리기 ////////////////
+
+  // const qnapage = (e) => {
+  //   e.preventDefault();
+  //   axios
+  //     .get("http://localhost:4001/qna", { params: { QID: userID } })
+  //     .then((res) => {
+  //       console.log(res.data);
+  //       let writerdata = res.data;
+  //       localStorage.setItem("writer", JSON.stringify(writerdata));
+  //       console.log(writerdata);
+  //       const Posts = localStorage.getItem("writer");
+  //       console.log(Posts);
+  //       navigate("/qna");
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
+
   return (
     <HeaderContainer>
       <HeaderMenuContainer>
@@ -242,9 +263,7 @@ function Header() {
                 navigate("/booksearch");
               }}
             >
-              {/* <Link to="/booksale"> */}
               구매요청 목록
-              {/* </Link> */}
             </MainMenuItem>
           </MainMenuItemContainer>
           <MainMenuItemContainer>

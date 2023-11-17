@@ -166,26 +166,42 @@ const AuthForm = ({ type }) => {
 
   const usersave = (e) => {
     e.preventDefault();
-    axios
-      .post("http://localhost:4001/register", {
-        ID: sID,
-        PW: password,
-        Name: sName,
-        Birth: sBirth,
-        PhoneNumber: sPhoneNumber,
-        Email: sEmail,
-      })
-      .then((res) => {
-        //데이터 전송 성공 시 response 받음
-        alert("회원가입 성공");
-        navigate("/");
-        console.log(res.config.data);
-        console.log("데이터 전송 소성");
-      })
-      .catch(function (err) {
-        //데이터 전송 실패 시 error 받음
-        alert("error는 " + err);
-      });
+    if (sName == null) {
+      alert("이름을 입력해주세요.");
+    } else if (sID == null) {
+      alert("아이디를 입력해주세요.");
+    } else if (password == null) {
+      alert("비밀번호를 입력해주세요.");
+    } else if (password !== passwordConfirm) {
+      alert("비밀번호가 일치하지 않습니다.");
+    } else if (sPhoneNumber == null) {
+      alert("전화번호를 입력해주세요.");
+    } else if (sEmail == null) {
+      alert("이메일을 입력해주세요.");
+    } else if (sBirth == null) {
+      alert("생년월일을 입력해주세요");
+    } else {
+      axios
+        .post("http://localhost:4001/register", {
+          ID: sID,
+          PW: password,
+          Name: sName,
+          Birth: sBirth,
+          PhoneNumber: sPhoneNumber,
+          Email: sEmail,
+        })
+        .then((res) => {
+          //데이터 전송 성공 시 response 받음
+          alert("회원가입 성공");
+          navigate("/");
+          console.log(res.config.data);
+          console.log("데이터 전송 소성");
+        })
+        .catch(function (err) {
+          //데이터 전송 실패 시 error 받음
+          alert("error는 " + err);
+        });
+    }
   };
 
   //////////////////////////////////////////////////////////////////////////////////////

@@ -76,7 +76,7 @@ textarea::placeholder{
     color: #ffffff;
     border-radius: 8px;
     cursor: pointer;
-    margin-left: 880px;
+    text-align: center;
     margin-top: -100px;
 }
 

@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const IdsearchBox = styled.div`
   height: 66.5vh;
@@ -62,6 +63,49 @@ const Button = styled.button`
 `;
 
 function Idsearchs() {
+  const navigate = useNavigate();
+  const [findname, setFindname] = useState("");
+  const [findbirth, setFindbirth] = useState("");
+  const [findphone, setFindphone] = useState("");
+  const LogOn = (e) => {
+    e.preventDefault();
+    axios
+      .post("http://localhost:4001/idsearchs", {
+        Name: findname,
+        Birth: findbirth,
+        PhoneNumber: findphone,
+      })
+      .then((res) => {
+        if (res.data == 1) {
+          localStorage.setItem("findname", findname);
+          localStorage.setItem("findbirth", findbirth);
+          localStorage.setItem("findphone", findphone);
+          const Findname = localStorage.getItem("findname");
+          const Findbirth = localStorage.getItem("findbirth");
+          const Findphone = localStorage.getItem("findphone");
+          navigate("/idfind");
+          alert("회원정보가 일치합니다.");
+        } else {
+          alert("회원정보가 일치하지 않습니다.");
+        }
+      })
+      .catch(function (err) {
+        alert("err는 " + err);
+      });
+  };
+
+  const Findname = (e) => {
+    const newFindname = e.target.value;
+    setFindname(newFindname);
+  };
+  const Findbirth = (e) => {
+    const newFindbirth = e.target.value;
+    setFindbirth(newFindbirth);
+  };
+  const Findphone = (e) => {
+    const newFindphone = e.target.value;
+    setFindphone(newFindphone);
+  };
   return (
     <IdsearchBox>
       <Searchs>
@@ -81,13 +125,17 @@ function Idsearchs() {
         <Lables>이름</Lables>
         <Inputs
           type="text"
+          value={findname}
+          onChange={Findname}
           style={{ marginTop: "60px", marginLeft: "40px" }}
         ></Inputs>
         <Lables>생년월일</Lables>
-        <Inputs type="text"></Inputs>
+        <Inputs type="text" value={findbirth} onChange={Findbirth}></Inputs>
         <Lables>전화번호</Lables>
-        <Inputs type="text"></Inputs>
-        <Button>확인</Button>
+        <Inputs type="text" value={findphone} onChange={Findphone}></Inputs>
+        {/* <Link to="/idfind"> */}
+        <Button onClick={LogOn}>확인</Button>
+        {/* </Link> */}
       </IDs>
     </IdsearchBox>
   );

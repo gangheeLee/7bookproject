@@ -1,17 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../qna/Qna.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import styled from "styled-components";
+
+const CorrecDel = styled.div``;
 
 function Qna(props) {
-  const [posts, setPosts] = useState([
-    { id: 1, writer: "홍길동", content: "이것은 첫 번째 게시글입니다." },
-  ]);
+  const navigate = useNavigate();
+  const userID = localStorage.getItem("userID");
+  const [posts, setPosts] = useState([]);
+  const [num, setNum] = useState("");
 
-  const handleDelete = (postId) => {
-    // 게시글 삭제 함수
-    const updatedPosts = posts.filter((post) => post.id !== postId);
-    setPosts(updatedPosts);
-  };
+  // console.log(posts);
+  // const OnClickDel = (e) => {
+  //   axios.post("http://localhost:4001/qnadel", { QNum: posts[0]["id"] });
+  // };
+  useEffect(() => {
+    axios
+      .get("http://localhost:4001/qna", { params: { QID: userID } })
+      .then((res) => {
+        console.log(res.data);
+        setPosts(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+
   return (
     <>
       <div className={styles.apage}>
@@ -38,31 +54,50 @@ function Qna(props) {
                   제목
                 </th>
                 <th scope="col" colSpan={"2"} className={styles.question}>
-                  답변/삭제
+                  수정/삭제
                 </th>
+                {/* <th scope="col" colSpan={"2"} className={styles.question}>
+                    (답변/)삭제
+                  </th> */}
               </tr>
             </thead>
             <tbody className={styles.tbody}>
-              {posts.map((post) => (
-                <tr key={post.id}>
-                  <td>{post.id}</td>
-                  <td colSpan={"2"}>{post.writer}</td>
-                  <td colSpan={"5"}>{post.content}</td>
-                  <td>
-                    <Link to="/anw" style={{ textDecoration: "none" }}>
-                      <label className={styles.btn1}>답변</label>
-                      <button style={{ display: "none" }}></button>
-                    </Link>
-                    <label
-                      className={styles.btn1}
-                      onClick={() => handleDelete(post.id)}
-                    >
-                      삭제
-                    </label>
-                    <button style={{ display: "none" }}></button>
-                  </td>
-                </tr>
-              ))}
+              {posts &&
+                posts.map((post) => (
+                  <tr key={post}>
+                    <td>{post.id}</td>
+                    <td colSpan={"2"}>{post.writer}</td>
+                    <td colSpan={"5"}>{post.content}</td>
+                    <td>
+                      {post.writer === userID && (
+                        <label
+                          // onClick={() => {
+                          //   navigate("/questioncorrection");
+                          // }}
+                          className={styles.btn1}
+                        >
+                          수정
+                        </label>
+                      )}
+                      {post.writer === userID && (
+                        <label
+                          // onClick={OnClickDel(post)}
+                          className={styles.btn1}
+                        >
+                          삭제
+                        </label>
+                      )}
+                    </td>
+                    {/* <td> */}
+                    {/* <Deletebtn /> */}
+                    {/* <Link to="/anw" style={{ textDecoration: "none" }}>
+                        <label className={styles.btn1}>답변</label>
+                        <button style={{ display: "none" }}></button>
+                      </Link> */}
+                    {/* <button style={{ display: "none" }}></button> */}
+                    {/* </td> */}
+                  </tr>
+                ))}
             </tbody>
           </table>
         </div>

@@ -126,14 +126,28 @@ export default function MyPage() {
   };
 
   const notify = (e) => {
-    toast("회원정보가 수정되었습니다.");
     e.preventDefault();
-    axios.post("http://localhost:4001/mypagechange", {
-      ID: userID,
-      PW: password,
-      PhoneNumber: chgphone,
-      Email: chgemail,
-    });
+    if (password !== confirmPassword) {
+      alert("비밀번호가 일치하지 않습니다");
+    } else if (chgemail == "") {
+      alert("이메일을 입력해주세요.");
+    } else if (chgphone == "") {
+      alert("전화번호를 입력해주세요.");
+    } else {
+      axios
+        .post("http://localhost:4001/mypagechange", {
+          ID: userID,
+          PW: password,
+          PhoneNumber: chgphone,
+          Email: chgemail,
+        })
+        .then((res) => {
+          toast("회원정보가 수정되었습니다.");
+        })
+        .catch(function (err) {
+          alert("err는 " + err);
+        });
+    }
   };
 
   return (

@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import PWfind from "./Pwfind";
 
 const PwsearchBox = styled.div`
   height: 66.5vh;
@@ -61,6 +63,46 @@ const Button = styled.button`
   margin-left: 135px;
 `;
 function Pwsearch() {
+  const navigate = useNavigate();
+  const [findID, setFindID] = useState("");
+  const [findname, setFindname] = useState("");
+  const [findphone, setFindphone] = useState("");
+
+  const PWOn = (e) => {
+    e.preventDefault();
+    axios
+      .post("http://localhost:4001/pwsearch", {
+        ID: findID,
+        Name: findname,
+        PhoneNumber: findphone,
+      })
+      .then((res) => {
+        if (res.data == 1) {
+          alert("비밀번호를 재설정하세요.");
+          localStorage.setItem("findID", findID);
+          const FindID = localStorage.getItem("findID");
+          navigate("/pwfind");
+        } else {
+          alert("회원정보가 일치하지 않습니다.");
+        }
+      })
+      .catch(function (err) {
+        alert("err는 " + err);
+      });
+  };
+
+  const FindID = (e) => {
+    const newfindID = e.target.value;
+    setFindID(newfindID);
+  };
+  const Findname = (e) => {
+    const newfindname = e.target.value;
+    setFindname(newfindname);
+  };
+  const Findphone = (e) => {
+    const newfindphone = e.target.value;
+    setFindphone(newfindphone);
+  };
   return (
     <PwsearchBox>
       <Searchs>
@@ -80,13 +122,20 @@ function Pwsearch() {
         <Lables>아이디</Lables>
         <Inputs
           type="text"
+          value={findID}
+          onChange={FindID}
           style={{ marginTop: "60px", marginLeft: "25px" }}
         ></Inputs>
         <Lables>이름</Lables>
-        <Inputs type="text" style={{ marginLeft: "40px" }}></Inputs>
+        <Inputs
+          type="text"
+          value={findname}
+          onChange={Findname}
+          style={{ marginLeft: "40px" }}
+        ></Inputs>
         <Lables>전화번호</Lables>
-        <Inputs type="text"></Inputs>
-        <Button>확인</Button>
+        <Inputs type="text" value={findphone} onChange={Findphone}></Inputs>
+        <Button onClick={PWOn}>확인</Button>
       </PWs>
     </PwsearchBox>
   );
