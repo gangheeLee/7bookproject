@@ -97,6 +97,7 @@ function Bookenroll(props) {
   const PurEnroll = (e) => {
     e.preventDefault();
     console.log(userID);
+    alert("도서 등록 완료");
     axios
       .post("http://localhost:4001/bookenroll", {
         PID: userID,

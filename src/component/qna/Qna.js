@@ -12,10 +12,11 @@ function Qna(props) {
   const [posts, setPosts] = useState([]);
   const [num, setNum] = useState("");
 
-  // console.log(posts);
+  // console.log(posts[0]["id"]);
   // const OnClickDel = (e) => {
-  //   axios.post("http://localhost:4001/qnadel", { QNum: posts[0]["id"] });
+  //   axios.post("http://localhost:4001/qnadel", { QNum: posts["id"] });
   // };
+
   useEffect(() => {
     axios
       .get("http://localhost:4001/qna", { params: { QID: userID } })
@@ -63,9 +64,9 @@ function Qna(props) {
             </thead>
             <tbody className={styles.tbody}>
               {posts &&
-                posts.map((post) => (
+                posts.map((post, index, array) => (
                   <tr key={post}>
-                    <td>{post.id}</td>
+                    <td>{index + 1}</td>
                     <td colSpan={"2"}>{post.writer}</td>
                     <td colSpan={"5"}>{post.content}</td>
                     <td>
@@ -81,7 +82,7 @@ function Qna(props) {
                       )}
                       {post.writer === userID && (
                         <label
-                          // onClick={OnClickDel(post)}
+                          // onClick={OnClickDel(index)}
                           className={styles.btn1}
                         >
                           삭제

@@ -13,10 +13,10 @@ const SearchInput = styled.input`
   border: 1.5px solid #69433a;
   border-radius: 1.5rem;
   padding-left: 1.3rem;
-  
+
   &:focus {
     outline: none;
-    }
+  }
 `;
 const SearchButon = styled.button`
   flex: 1;
@@ -26,9 +26,9 @@ const SearchButon = styled.button`
   border: none;
   border-radius: 1.5rem;
   cursor: pointer;
-  
+
   &:hover {
-    background-color: #C33740;
+    background-color: #c33740;
   }
 `;
 

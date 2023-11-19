@@ -2,10 +2,12 @@ import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import SearchBar from "./SearchBar";
 
 const CardContainer = styled.div`
-  width: 30%;
   margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
 `;
 
 const CardImageContainer = styled.div`
@@ -18,8 +20,8 @@ const CardImageContainer = styled.div`
 `;
 
 const CardImage = styled.img`
-  max-width: 100%;
-  height: auto;
+  width: 200px;
+  height: 300px;
   background-color: #fff;
 `;
 
@@ -57,6 +59,11 @@ const CardFooterButton = styled.button`
   }
 `;
 
+const BookBox = styled.div`
+  margin-left: 100px;
+  position: relative;
+`;
+
 function BookCard({ book }) {
   const navigate = useNavigate();
   const userID = localStorage.getItem("userID");
@@ -73,26 +80,30 @@ function BookCard({ book }) {
         console.log(err);
       });
   });
+  const searchbtn = (e) => {
+    localStorage.setItem("PImage", getbook.index);
+  };
 
   return (
-    <CardContainer style={{ alignItems: "center" }}>
+    <CardContainer style={{ alignItems: "center", width: "1300px" }}>
       {getbook &&
-        getbook.map((item) => (
-          <div key={item}>
+        getbook.map((item, index, array) => (
+          <BookBox key={item}>
             <CardImageContainer>
               <CardImage src={item.PImage} alt={item.PBookTitle} />
             </CardImageContainer>
+
             <CardBody>
               <CardBodyTitle>{item.PBookTitle}</CardBodyTitle>
               <CardBodyAuthor>{item.PAuthor}</CardBodyAuthor>
             </CardBody>
             <CardFooter>
               <CardFooterButton
-              //  onClick={() => {ㅌ
-              //   navigate(`/book-request/detail/${book.id}`)
-              // }}
+                onClick={(e) => {
+                  localStorage.setItem("getbooks", item.getbook);
+                  const getBook = localStorage.getItem("getbooks");
+                }}
               >
-                {/* 시연용 주소값 하드코딩 */}
                 <Link
                   to="/booksale"
                   style={{ textDecoration: "none", color: "white" }}
@@ -108,7 +119,7 @@ function BookCard({ book }) {
                 응찰참여
               </CardFooterButton>
             </CardFooter>
-          </div>
+          </BookBox>
         ))}
     </CardContainer>
   );

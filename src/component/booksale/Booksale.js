@@ -120,6 +120,8 @@ const Bookhis = styled.button`
 `;
 
 function Booksale(props) {
+  const bookinfo = localStorage.getItem("getbooks");
+  console.log(bookinfo);
   return (
     <SaleBox>
       <BookImg>
